@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>CRM: Leads mode, username</title>
+	
+	<!-- bootstrap stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+	
+	<!-- RTL support - for demo only -->
+	<script src="js/demo-rtl.js"></script>
+	<!-- 
+	If you need RTL support just include here RTL CSS file <link rel="stylesheet" type="text/css" href="css/libs/bootstrap-rtl.min.css" />
+	And add "rtl" class to <body> element - e.g. <body class="rtl"> 
+	-->
+	
+	<!-- font libraries -->
+	<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+  
+  <!-- scrollbar stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+	
+	<!-- global styles -->
+	<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css" />
+
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css" />
+	
+	<!-- Favicon -->
+	<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+
+	<!-- google font libraries -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+  
+  <!-- custome stylesheet -->
+  <link href="css/custome.css" type="text/css" rel="stylesheet">
+  
+  <!-- page specific stylesheet -->
+  <style type="text/css">
+		.main-box{margin-bottom:8px;}
+		ul.filer-time{margin-bottom:0px !important;}
+		ul.filer-time li{display:inline;line-height:50px;padding:0px 10px;}
+		ul.filer-time li a{padding:15px 0px 14px 0px;color:#ccc;text-decoration:none;}
+		ul.filer-time li a:hover{color:#03a9f4;text-decoration:none;}
+		ul.filer-time li a.active{color:#03a9f4;border-bottom:2px solid #03a9f4;}
+		html{background-color:#fff;}
+		body{position:relative !important;}
+		ul.recent-activity-dropdown,
+		ul.recent-activity-dropdown li,
+		ul.recent-activity-dropdown li a{padding:3px !important;border:0px;font-size:14px;}
+		#content-wrapper{margin-right:0px !important; padding-left:230px;}
+		.note{position: relative; width: 100%; padding: 1em 1.5em; margin: 2em auto;  background: #eeeeee; }
+		.note:before {content: ""; position: absolute; top: 0; right: 0; border-width: 0 16px 16px 0; border-style: solid; border-color: #cccccc #fff;}
+		.note:before {... display: block; width: 0;}
+		.note:before {... -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2); -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.0); box-shadow: 0 1px 1px rgba(0,0,0,0.0), -1px 1px 1px rgba(0,0,0,0.0);}
+	</style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="jquery.sumoselect.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3 });
+      window.test = $('.testsel').SumoSelect({okCancelInMulti:true });
+      window.testSelAll = $('.testSelAll').SumoSelect({okCancelInMulti:true, selectAll:true });
+      window.testSelAll2 = $('.testSelAll2').SumoSelect({selectAll:true });
+    });
+  </script>
+  <link href="sumoselect.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="theme-wrapper">
+  	<!-- Header S ting -->
+		<header class="navbar" id="header-navbar">
+			<div class="container">
+      	<!--Logo S ting-->
+				<a href="dashboard.html" id="logo" class="navbar-brand">
+					<img src="img/logo.png" alt="" class="normal-logo logo-white"/>
+					<img src="img/logo-black.png" alt="" class="normal-logo logo-black"/>
+					<img src="img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
+				</a>
+        <!--Logo E ding-->
+        <!--Else I tem-->
+				<div class="clearfix">
+          <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+          </button>
+          <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+            <ul class="nav navbar-nav pull-left">
+              <li>
+                <a class="btn" id="make-small-nav">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell"></i>
+                  <span class="count">8</span>
+                </a>
+                <ul class="dropdown-menu notifications-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item-header">You have 6 new notifications</li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-comment"></i>
+                      <span class="content">New comment on ‘Awesome P...</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-plus"></i>
+                      <span class="content">New user registration</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>
+                      <span class="content">New Message from George</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="content">New purchase</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-eye"></i>
+                      <span class="content">New order</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all notifications
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-globe"></i>
+                  <span class="count">16</span>
+                </a>
+                <ul class="dropdown-menu notifications-list messages-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item first-item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-1.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          George Clooney
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-2.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Emma Watson
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-3.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Robert Downey Jr.
+                        </span>
+
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all messages
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-plus-circle"></i>
+                  &nbsp;Add&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-dollar"></i>
+                      Lead
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-phone"></i> 
+                      Contact
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-building-o"></i> 
+                      Company
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-file-text"></i> 
+                      To-Do
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-dashboard"></i>
+                  Dashboard&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-user"></i> 
+                      My
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-users"></i> 
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-no-collapse pull-right" id="header-nav">
+            <ul class="nav navbar-nav pull-right">
+              <li class="mobile-search">
+                <a class="btn">
+                  <i class="fa fa-search"></i>
+                </a>
+                <div class="drowdown-search">
+                  <form role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search...">
+                      <i class="fa fa-search nav-search-icon"></i>
+                    </div>
+                  </form>
+                </div>
+              </li>
+              <li class="dropdown profile-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="img/samples/scarlet-159.png" alt=""/>
+                  <span class="hidden-xs">Scarlett Johansson</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+                  <li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+                  <li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+                </ul>
+              </li>
+              <li class="hidden-xxs">
+                <a class="btn">
+                  <i class="fa fa-power-off"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+				</div>
+        <!--Else I tem-->
+			</div>
+		</header>
+    <!-- Header E ting -->
+    <!-- Document S ting -->
+		<div id="page-wrapper" class="container">
+			<div class="row">
+      	<!-- Nevigation opt col s ting -->
+				<div id="nav-col">
+					<section id="col-left" class="col-left-nano">
+						<div id="col-left-inner" class="col-left-nano-content">
+							<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+								<img alt="" src="img/samples/scarlet-159.png" />
+								<div class="user-box">
+									<span class="name">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											Scarlett J. 
+											<i class="fa fa-angle-down"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+											<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+											<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+										</ul>
+									</span>
+									<span class="status">
+										<i class="fa fa-circle"></i> Online
+									</span>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">	
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header nav-header-first hidden-sm hidden-xs">
+										Navigation
+									</li>
+									<li>
+										<a href="dashboard.html">
+											<i class="fa fa-dashboard"></i>
+											<span>Dashboard</span>
+											<span class="label label-primary label-circle pull-right">28</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='leads.html'">
+											<i class="fa fa-dollar"></i>
+											<span>Leads</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='contacts.html'">
+											<i class="fa fa-phone"></i>
+											<span>Contacts</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='calander.html'">
+											<i class="fa fa-calendar"></i>
+											<span>Calendar</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li class="active">
+										<a href="stats.html">
+											<i class="fa fa-bar-chart-o"></i>
+											<span>Stats</span>
+											<span class="label label-success pull-right">New</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='settings.html'">
+											<i class="fa fa-cog"></i>
+											<span>Settings</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+							<!--<li>
+										<a href="/angularjs">
+											<i class="fa fa-google"></i>
+											<span>AngularJS Demo</span>
+										</a>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</section>
+					<div id="nav-col-submenu"></div>
+				</div>
+				<!-- Nevigation opt col E ting -->
+        <div id="content-wrapper">
+        	
+        	<div id="back_fader" onClick="popupdiv(event)">
+        	<div class="suboptions" id="subOptionpenel" style="width:215px; position:absolute; height:100%; top:0px; left:0px; background-color:#f9f9f9; z-index:99;">
+            <div id="content-header" class="clearfix nomargin">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 style="line-height:72px; padding-left:0px;">
+                	Analytics
+                  <span class="pull-right" id="innerSubOptionBtn"><a onclick="subOptionPenel();" href="javascript:void(0);"><i class="fa fa-bars"></i></a></span>
+                </h1>
+              </div>
+            </div>
+            <ul>
+            	<li><a href="javascript:void(0);" class="active">Win-Lost Analysis</a></li>
+              <li><a href="javascript:void(0);">Consolidated report</a></li>
+              <li><a href="javascript:void(0);">Report by activities</a></li>
+              <li><a href="javascript:void(0);">Activity Log</a></li>
+              <li><a href="javascript:void(0);">Call report</a></li>
+              <li><a href="javascript:void(0);">Goal report</a></li>
+            </ul>
+          </div>
+          </div>
+          
+          
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div id="content-header" class="clearfix">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1 class="nopadding">
+                          <a onclick="subOptionPenel();" id="headmenubtn" href="javascript:void(0);" class="pull-left" style="margin:5px 10px;">
+                            <i class="fa fa-bars"></i>
+                          </a>
+                          <ul class="nav pull-left">
+                            <li class="dropdown">
+                              <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" style="line-height:25px;border:0px;">
+                                <i class="fa fa-filter"></i>&nbsp;&nbsp;FILTER&nbsp;&nbsp;<i class="fa fa-angle-right drop-icon"></i>
+                              </button>
+                              <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                <form method="post" action="" accept-charset="UTF-8">
+                                	<div class="form-group">
+                                  	<div class="sub-penel-control">
+                                    <select name="somename" class="SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+                                      <option disabled="disabled" selected="selected">When</option>
+                                      <!--placeholder-->
+                                      <option value="today">Today</option>
+                                      <option value="thisweek">This week</option>
+                                      <option value="lastweek">Last week</option>
+                                      <option value="thismonth">This month</option>
+                                      <option value="thisquarter">This quarter</option>
+                                      <option value="period">Period</option>
+                                    </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+	                                  <div class="sub-penel-control">
+                                    <span style="padding-bottom:5px; display:block; color:#000;">Users</span>
+                                    <select multiple="multiple" placeholder="Responsible" onchange="console.log($(this).children(':selected').length)" class="testSelAll2">
+                                      <option value="member1">Sales Team Member 1</option>
+                                      <option value="member2">Sales Team Member 2</option>
+                                      <option value="member3">Sales Team Member 3</option>
+                                      <option value="member4">Sales Team Member 4</option>
+                                      <option value="member5">Sales Team Member 5</option>
+                                      <option value="member6">Sales Team Member 6</option>
+                                      <option value="member7">Sales Team Member 7</option>
+                                    </select>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  	<div class="sub-penel-control">
+                                    	<span style="padding-bottom:5px; display:block; color:#000;">Tags</span>
+                                      <select multiple="multiple" placeholder="Select tag" onchange="console.log($(this).children(':selected').length)" class="testSelAll2">
+                                        <option value="tag1">Tag 1</option>
+                                        <option value="tag2">Tag 2</option>
+                                        <option value="tag3">Tag 3</option>
+                                        <option value="tag4">Tag 4</option>
+                                        <option value="tag5">Tag 5</option>
+                                        <option value="tag6">Tag 6</option>
+                                        <option value="tag7">Tag 7</option>
+                                      </select>
+                                    </div>
+                                  </div>
+	                                <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="APPLY">
+                                </form>
+                                <br />
+                              </div>
+                            </li>
+                          </ul>
+                          <span style="line-height:37px;">&nbsp;Win-Lost Analysis</span>
+                        </h1>
+                      </div>
+                      <div class="clearfix"></div>
+                      <br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            	<div class="row">
+            	<div class="col-lg-6">
+            	<div class="pull-left my-all">
+                <a href="javascript:void(0)" class="active" style="line-height:20px;" onClick="showcalendar();" id="caleS">All</a>
+                <a href="javascript:void(0)" style="line-height:20px;" onClick="leadpipelineview();" id="leadP" class="tabview-mid-option">Active</a>
+                <a href="javascript:void(0)" style="line-height:20px;" onClick="leadlistview();" id="leadL">Closed</a>
+              </div>
+              </div>
+              <div class="col-lg-6">
+              <div class="pull-right my-all">
+                <a href="javascript:void(0)" class="active" style="line-height:20px;" onClick="showcalendar();" id="caleS">By sale</a>
+                <a href="javascript:void(0)" style="line-height:20px;" onClick="leadpipelineview();" id="leadP" class="tabview-mid-option">By amount</a>
+              </div>
+              </div>
+            </div>
+            
+            	<br />
+            
+            	<div class="row">
+            	<div class="col-lg-9">
+              	<div class="progress progress-5x">
+									<div class="progress-bar progress-bar-info pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-5x">
+									<div class="progress-bar progress-bar-success pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-5x">
+									<div class="progress-bar progress-bar-warning pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-5x">
+									<div class="progress-bar progress-bar-danger pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 42%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-5x">
+									<div class="progress-bar progress-bar pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-5x">
+									<div class="progress-bar progress-bar-success pull-right" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+										<span class="sr-only">55% Complete</span>
+									</div>
+								</div>
+                <div class="progress progress-4x">
+									<div class="progress-bar progress-bar-success pull-right" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+										<span class="sr-only">40% Complete (success)</span>
+									</div>
+								</div>
+                <br />
+              </div>
+              
+              <div class="col-lg-3">
+              	<ul class="statistics_stats">
+                	<li>
+                  	<span style="width:10%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $00,000,000
+                  </li>
+                  <li>
+                  	<span style="width:25%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $00,000,000
+                  </li>
+                  <li>
+                  	<span style="width:50%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $0,000,000
+                  </li>
+                  <li>
+                  	<span style="width:100%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $0,000,000
+                  </li>
+                  <li>
+                  	<span style="width:75%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $0,000,000 
+                  </li>
+                  <li>
+                  	<span style="width:100%;"></span>
+                  	<a href="javascript:void(0)">00</a> leads $0,000,000
+                  </li>
+                  <li>
+                  	<a href="javascript:void(0)">00</a> leads $0,000,000
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            	<div class="row">
+            	<div class="col-lg-12">
+              	<div class="main-box">
+                	<div class="row">
+                  <div class="col-lg-5">
+                    <header class="main-box-header clearfix">
+                      <h2>Prospective Sales</h2>
+                    </header>
+                    <div class="main-box-body clearfix">
+                      <div id="hero-donut"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-7">
+                  	<div class="note-content">
+                  	<div class="note">
+                    	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </div>
+                    </div>
+                    <div class="">
+                    	<ul class="durationtable">
+                      	<li>
+                        	<div class="durationtablesection">
+                          	<h4>20 days</h4>
+                            <div class="durationsectionrow"></div>
+                            <div class="durationsectionrow greenborder-shade1">
+                            	$000
+                              <br />
+                              0 leads
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                        	<div class="durationtablesection">
+                          	<h4>40 days</h4>
+                            <div class="durationsectionrow greenborder-shade2">
+                            	$000
+                              <br />
+                              0 leads
+                            </div>
+                            <div class="durationsectionrow"></div>
+                          </div>
+                        </li>
+                        <li>
+                        	<div class="durationtablesection">
+                          	<h4>Total</h4>
+                            <div class="durationsectionrow greenborder-shade3">
+                            	$000
+                              <br />
+                              0 leads
+                            </div>
+                            <div class="durationsectionrow"></div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  </div>
+								</div>
+              </div>
+            </div>
+            
+            </div>
+            
+          </div>
+          
+        </div>
+        </div>
+        
+        <footer id="footer-bar" class="row">
+					<p id="footer-copyright" class="col-xs-12">Powered by CRM Theme.</p>
+				</footer>
+                
+			</div>
+		</div>
+    <!-- Document E ting -->
+	</div>
+	
+  <!-- Configtool -->
+	<div id="config-tool" class="closed">
+		<a id="config-tool-cog">
+			<i class="fa fa-cog"></i>
+		</a>
+		<div id="config-tool-options">
+    	<div style="display:none;">
+			<h4>Layout Options</h4>
+			<ul>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-header" checked/>
+						<label for="config-fixed-header">
+							Fixed Header
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-sidebar" checked/>
+						<label for="config-fixed-sidebar">
+							Fixed Left Menu
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-footer" checked/>
+						<label for="config-fixed-footer">
+							Fixed Footer
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-boxed-layout" />
+						<label for="config-boxed-layout">
+							Boxed Layout
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-rtl-layout" />
+						<label for="config-rtl-layout">
+							Right-to-Left
+						</label>
+					</div>
+				</li>
+			</ul>
+			<br/>
+			<h4>Skin Color</h4>
+      </div>
+			<ul id="skin-colors" class="clearfix">
+				<li>
+					<a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default" style="background-color: #34495e;"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;"></a>
+				</li>
+				<li>
+					<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea" style="background-color: #1abc9c;"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #2980b9;"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;"></a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #3498db;"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+  <!-- Configtool -->
+	
+	<!-- global scripts -->
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/demo-skin-changer.js"></script> <!-- only for demo -->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.nanoscroller.min.js"></script>
+	
+	<script src="js/demo.js"></script> <!-- only for demo -->
+	
+	<!-- this page specific scripts -->
+	<script src="js/moment.min.js"></script>
+	<script src="js/gdp-data.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+	<script src="js/flot/jquery.flot.threshold.js"></script>
+	<script src="js/flot/jquery.flot.axislabels.js"></script>
+	<script src="js/jquery.sparkline.min.js"></script>
+	
+	<!-- theme scripts -->
+	<script src="js/scripts.js"></script>
+	<script src="js/pace.min.js"></script>
+  
+  <!-- this page specific scripts -->
+	<script src="js/jquery.knob.js"></script>
+	<script src="js/raphael-min.js"></script>
+	<script src="js/morris.js"></script>
+	
+	<!-- this page specific inline scripts -->
+  <script type="text/javascript">
+		graphDonut = Morris.Donut({
+			element: 'hero-donut',
+			data: [
+				{label: 'Active Leads', value: 25 },
+				{label: 'Active Leads', value: 40 },
+				{label: 'Active Leads', value: 25 },
+				{label: 'Active Leads', value: 10 }
+			],
+			colors: ['#8bc34a', '#ffc107', '#e84e40', '#03a9f4', '#9c27b0', '#90a4ae'],
+			formatter: function (y) { return y + "%" },
+			resize: true
+		});
+	</script>
+
+  <script type="text/javascript">
+	function popupdiv(event){
+		//alert("function call");
+		if(event.target.id == "back_fader")
+    	{
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("overflow-x","");
+				$("#back_fader").css("overflow-y","");
+				$("#back_fader").css("position","fixed");
+				$("#back_fader").css("right","0px");
+				$("#back_fader").css("top","0px");
+				$("#back_fader").css("z-index","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#headmenubtn").show();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+   		}
+	};
+	document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        //alert("Escape");
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("position","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("right","");
+				$("#back_fader").css("top","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#headmenubtn").show();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+    }
+	};
+	function productdetailspopup(){
+//	$("#recentActivitys").css("display","block");
+//	$("#recentActivity").css("display","block");
+		document.body.style.overflow = 'hidden';
+		$("#back_fader").css("background-color","rgba(0, 0, 0, 0.50)");
+		$("#back_fader").css("position","fixed");
+		$("#back_fader").css("left","0px");
+		$("#back_fader").css("right","0px");
+		$("#back_fader").css("top","0px");
+		$("#back_fader").css("bottom","0px");		
+//	$("#popupContent").css("margin","50px 0px 35px 0px");
+//	$("#popupContent").css("background","#ffffff");
+//	$("#popupContent").css("position","static");
+//	$("#popupContent").css("z-index","10");
+//	$("#popupContent").css("box-shadow","0 3px 8px rgba(34, 25, 25, 0.4)");
+//	$("#popupContent").css("top","110px");
+		$("#content-wrapper").css("padding-left","230px");
+	}
+	</script>
+  
+  <script type="text/javascript">
+		function leadlistview(){
+			$("#pipeLine").hide();
+			$("#leadList").show();
+			$("#leadL").addClass(" active ");
+			$("#leadP").removeClass(" active ");
+		}
+		function leadpipelineview(){
+			$("#pipeLine").show();
+			$("#leadList").hide();
+			$("#leadP").addClass(" active ");
+			$("#leadL").removeClass(" active ");
+		}
+		$("#leadList").hide();
+		function subOptionPenel(){
+			$("#subOptionpenel").toggle();
+			$("#content-wrapper").toggleClass("content-wrapper-noleftpadding");
+			$("#subOptionpenel").toggleClass("suboptionpenelposition");
+			$("#headmenubtn").toggle();
+			if(window.innerWidth < 1100){
+				$("#back_fader").toggleClass("back-fader-style");
+			}
+		}
+		window.onresize = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#headmenubtn").show();
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+				$("#headmenubtn").hide();
+				
+			}
+		}
+		window.onload = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+				$("#headmenubtn").show();
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+				$("#headmenubtn").hide();
+			}
+		}
+		$("#innerSubOptionBtn").css("display","none");
+		$("#headmenubtn").hide();
+	</script>
+</body>
+</html>

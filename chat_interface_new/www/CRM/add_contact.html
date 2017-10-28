@@ -1,0 +1,1058 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>CRM: Leads mode, username</title>
+	
+	<!-- bootstrap stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+	
+	<!-- RTL support - for demo only -->
+	<script src="js/demo-rtl.js"></script>
+	<!-- 
+	If you need RTL support just include here RTL CSS file <link rel="stylesheet" type="text/css" href="css/libs/bootstrap-rtl.min.css" />
+	And add "rtl" class to <body> element - e.g. <body class="rtl"> 
+	-->
+	
+	<!-- font libraries -->
+	<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+  
+  <!-- scrollbar stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+	
+	<!-- global styles -->
+	<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css" />
+
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css" />
+  <link rel="stylesheet" href="css/datepicker.css" type="text/css" />
+	
+	<!-- Favicon -->
+	<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+  
+  <link rel="stylesheet" href="css/libs/select2.css" type="text/css" />
+
+	<!-- google font libraries -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+  
+  <!-- custome stylesheet -->
+  <link href="css/custome.css" type="text/css" rel="stylesheet">
+  
+  <!-- page specific stylesheet -->
+  <style type="text/css">
+		.main-box{margin-bottom:8px;}
+		ul.filer-time{margin-bottom:0px !important;}
+		ul.filer-time li{display:inline;line-height:50px;padding:0px 10px;}
+		ul.filer-time li a{padding:15px 0px 14px 0px;color:#ccc;text-decoration:none;}
+		ul.filer-time li a:hover{color:#03a9f4;text-decoration:none;}
+		ul.filer-time li a.active{color:#03a9f4;border-bottom:2px solid #03a9f4;}
+		html{background-color:#fff;}
+		body{position:relative !important;}
+		ul.recent-activity-dropdown,
+		ul.recent-activity-dropdown li,
+		ul.recent-activity-dropdown li a{padding:3px !important;border:0px;font-size:14px;}
+		#content-wrapper{margin-right:0px !important; padding-left:230px;}
+	</style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="jquery.sumoselect.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3 });
+      window.test = $('.testsel').SumoSelect({okCancelInMulti:true });
+      window.testSelAll = $('.testSelAll').SumoSelect({okCancelInMulti:true, selectAll:true });
+      window.testSelAll2 = $('.testSelAll2').SumoSelect({selectAll:true });
+    });
+  </script>
+  <link href="sumoselect.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="theme-wrapper">
+  	<!-- Header S ting -->
+		<header class="navbar" id="header-navbar">
+			<div class="container">
+      	<!--Logo S ting-->
+				<a href="dashboard.html" id="logo" class="navbar-brand">
+					<img src="img/logo.png" alt="" class="normal-logo logo-white"/>
+					<img src="img/logo-black.png" alt="" class="normal-logo logo-black"/>
+					<img src="img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
+				</a>
+        <!--Logo E ding-->
+        <!--Else I tem-->
+				<div class="clearfix">
+          <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+          </button>
+          <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+            <ul class="nav navbar-nav pull-left">
+              <li>
+                <a class="btn" id="make-small-nav">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell"></i>
+                  <span class="count">8</span>
+                </a>
+                <ul class="dropdown-menu notifications-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item-header">You have 6 new notifications</li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-comment"></i>
+                      <span class="content">New comment on ‘Awesome P...</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-plus"></i>
+                      <span class="content">New user registration</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>
+                      <span class="content">New Message from George</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="content">New purchase</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-eye"></i>
+                      <span class="content">New order</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all notifications
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-globe"></i>
+                  <span class="count">16</span>
+                </a>
+                <ul class="dropdown-menu notifications-list messages-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item first-item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-1.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          George Clooney
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-2.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Emma Watson
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-3.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Robert Downey Jr.
+                        </span>
+
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all messages
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-plus-circle"></i>
+                  &nbsp;Add&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-dollar"></i>
+                      Lead
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-phone"></i> 
+                      Contact
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-building-o"></i> 
+                      Company
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-file-text"></i> 
+                      To-Do
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-dashboard"></i>
+                  Dashboard&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-user"></i> 
+                      My
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-users"></i> 
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-no-collapse pull-right" id="header-nav">
+            <ul class="nav navbar-nav pull-right">
+              <li class="mobile-search">
+                <a class="btn">
+                  <i class="fa fa-search"></i>
+                </a>
+                <div class="drowdown-search">
+                  <form role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search...">
+                      <i class="fa fa-search nav-search-icon"></i>
+                    </div>
+                  </form>
+                </div>
+              </li>
+              <li class="dropdown profile-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="img/samples/scarlet-159.png" alt=""/>
+                  <span class="hidden-xs">kelly rohr</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+                  <li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+                  <li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+                </ul>
+              </li>
+              <li class="hidden-xxs">
+                <a class="btn">
+                  <i class="fa fa-power-off"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+				</div>
+        <!--Else I tem-->
+			</div>
+		</header>
+    <!-- Header E ting -->
+    <!-- Document S ting -->
+		<div id="page-wrapper" class="container">
+			<div class="row">
+      	<!-- Nevigation opt col s ting -->
+				<div id="nav-col">
+					<section id="col-left" class="col-left-nano">
+						<div id="col-left-inner" class="col-left-nano-content">
+							<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+								<img alt="" src="img/samples/scarlet-159.png" />
+								<div class="user-box">
+									<span class="name">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											kelly rohr 
+											<i class="fa fa-angle-down"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+											<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+											<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+										</ul>
+									</span>
+									<span class="status">
+										<i class="fa fa-circle"></i> Online
+									</span>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">	
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header nav-header-first hidden-sm hidden-xs">
+										Navigation
+									</li>
+									<li>
+										<a href="dashboard.html">
+											<i class="fa fa-dashboard"></i>
+											<span>Dashboard</span>
+											<span class="label label-primary label-circle pull-right">28</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='leads.html'">
+											<i class="fa fa-dollar"></i>
+											<span>Leads</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li class="active">
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='contacts.html'">
+											<i class="fa fa-phone"></i>
+											<span>Contacts</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='calander.html'">
+											<i class="fa fa-calendar"></i>
+											<span>Calendar</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="stats.html">
+											<i class="fa fa-bar-chart-o"></i>
+											<span>Stats</span>
+											<span class="label label-success pull-right">New</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='settings.html'">
+											<i class="fa fa-cog"></i>
+											<span>Settings</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+							<!--<li>
+										<a href="/angularjs">
+											<i class="fa fa-google"></i>
+											<span>AngularJS Demo</span>
+										</a>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</section>
+					<div id="nav-col-submenu"></div>
+				</div>
+				<!-- Nevigation opt col E ting -->
+        <div id="content-wrapper">
+        	<div id="back_fader" onClick="popupdiv(event)">
+        	<div class="suboptions" id="subOptionpenel" style="width:215px; position:absolute; top:0px; left:0px; background-color:#f9f9f9; z-index:99;">
+            <div id="content-header" class="clearfix nomargin">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 style="line-height:72px; padding-left:0px;">Contacts<span class="pull-right"><a href="javascript:void(0);" onClick="subOptionPenel();"><i class="fa fa-bars"></i></a></span></h1>
+              </div>
+            </div>
+            <ul>
+            <li>
+              	<div class="form-group notmarginb">
+									<label for="exampleAppPre">Resp. user</label>
+	              	<div class="sub-penel-control">
+                  <div id="toDoTimeDuration">
+                    <select class="SlectBox" placeholder="Select Resp. user">
+                      <option value="ignore">Select Resp. user</option>
+                      <option value="today">Resp. user 1</option>
+                      <option value="tomorrow">Resp. user 2</option>
+                      <option value="week">Resp. user 3</option>
+                      <option value="thismonth">Resp. user 4</option>
+                      <option value="thisquarter">Resp. user 5</option>
+                    </select>
+                  </div>
+              	</div>
+                </div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="exampleInputEmail1">Position</label>
+                	<div class="sub-penel-control">
+										<input type="email" placeholder="Position title" id="exampleInputEmail1" class="form-control">
+                	</div>
+								</div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="examplePrependDropdown">Phone Number</label>
+                  <div class="sub-penel-control">
+                  <div id="toDoTimeDuration" class="pull-left">
+                    <select class="SlectBox" style="width:75px;">
+                      <option value="ignore">Type</option>
+                      <option value="today">Work</option>
+                      <option value="tomorrow">Work DD</option>
+                      <option value="week">Mobile</option>
+                      <option value="thismonth">Fax</option>
+                      <option value="thisquarter">Home</option>
+                      <option value="thisquarter">Other</option>
+                    </select>
+                  </div>
+                  <input type="email" placeholder="Phone No" id="exampleInputEmail1" class="form-control pull-left" style="width:99px; line-height:30px !important; height:30px">
+                  <a href="javascript:void(0)" class="pull-right nopadding nomargin">ADD PHONE</a>
+                  <div class="clearfix"></div>
+                  </div>
+								</div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="examplePrependDropdown">Email Address</label>
+                  <div class="sub-penel-control">
+                  <div id="toDoTimeDuration" class="pull-left">
+                    <select class="SlectBox" style="width:75px;">
+                      <option value="ignore">Type</option>
+                      <option value="today">Work Email</option>
+                      <option value="tomorrow">Priv. Email</option>
+                      <option value="week">Other Email</option>
+                    </select>
+                  </div>
+                  <input type="email" placeholder="mail@crmtheme.com" id="exampleInputEmail1" class="form-control pull-left" style="width:99px; line-height:30px !important; height:30px">
+                  <a href="javascript:void(0)" class="pull-right nopadding nomargin">ADD EMAIL</a>
+                  <div class="clearfix"></div>
+                  </div>
+								</div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="examplePrependDropdown">ICQ</label>
+                  <div class="sub-penel-control">
+                  <div id="toDoTimeDuration" class="pull-left">
+                    <select class="SlectBox" style="width:75px;">
+                      <option value="ignore">Type</option>
+                      <option value="today">jabber</option>
+                      <option value="tomorrow">Skype</option>
+                      <option value="week">Google</option>
+                      <option value="week">MSN</option>
+                      <option value="week">Google</option>
+                    </select>
+                    
+                  </div>
+                  <input type="email" placeholder="" id="exampleInputEmail1" class="form-control pull-left" style="width:99px; line-height:30px !important; height:30px">
+                  <a href="javascript:void(0)" class="pull-right nopadding nomargin">ADD IM</a>
+                  <div class="clearfix"></div>
+                  </div>
+								</div>
+              </li>																																																																																										
+              <li><h3 class="">Company</h3></li>
+              <li>
+              <div class="form-group notmarginb">
+								<label for="exampleInputEmail1">Company name</label>
+                <div class="sub-penel-control">
+									<input type="email" placeholder="Enter Company Name" id="exampleInputEmail1" class="form-control">
+                </div>
+							</div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="examplePrependDropdown">Phone Number</label>
+                  <div class="sub-penel-control">
+                  <div id="toDoTimeDuration" class="pull-left">
+                    <select class="SlectBox" style="width:75px;">
+                      <option value="ignore">Type</option>
+                      <option value="today">Work</option>
+                      <option value="tomorrow">Work DD</option>
+                      <option value="week">Mobile</option>
+                      <option value="thismonth">Fax</option>
+                      <option value="thisquarter">Home</option>
+                      <option value="thisquarter">Other</option>
+                    </select>
+                  </div>
+                  <input type="email" placeholder="Phone No" id="exampleInputEmail1" class="form-control pull-left" style="width:99px; line-height:30px !important; height:30px">
+                  <a href="javascript:void(0)" class="pull-right nopadding nomargin">ADD PHONE</a>
+                  <div class="clearfix"></div>
+                  </div>
+								</div>
+              </li>
+              <li>
+              	<div class="form-group notmarginb">
+									<label for="examplePrependDropdown">Email Address</label>
+                  <div class="sub-penel-control">
+                  <div id="toDoTimeDuration" class="pull-left">
+                    <select class="SlectBox" style="width:75px;">
+                      <option value="ignore">Type</option>
+                      <option value="today">Work Email</option>
+                      <option value="tomorrow">Priv. Email</option>
+                      <option value="week">Other Email</option>
+                    </select>
+                  </div>
+                  <input type="email" placeholder="mail@crmtheme.com" id="exampleInputEmail1" class="form-control pull-left" style="width:99px; line-height:30px !important; height:30px">
+                  <a href="javascript:void(0)" class="pull-right nopadding nomargin">ADD EMAIL</a>
+                  <div class="clearfix"></div>
+                  </div>
+								</div>
+              </li>
+              <li>
+              <div class="form-group notmarginb">
+								<label for="exampleInputEmail1">Website</label>
+                <div class="sub-penel-control">
+									<input type="email" placeholder="Enter Website" id="exampleInputEmail1" class="form-control">
+                </div>
+							</div>
+              </li>
+              <li>
+              <div class="form-group notmarginb">
+								<label for="exampleInputEmail1">Address</label>
+                <div class="sub-penel-control">
+									<textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+                </div>
+							</div>
+              </li>
+              <li><h3>Leads</h3></li>
+              <li>
+              	<button class="btn btn-primary text-center fullwidth" type="button" style="line-height:25px;border:0px;">Quick Add</button>
+                <div>
+                  <div class="sub-penel-control">
+                      <input type="email" placeholder="Enter Lead Name" id="exampleInputEmail1" class="form-control">
+                    </div>
+                  <div id="toDoTimeDuration">
+                    <select class="SlectBox" placeholder="Select Resp. user">
+                      <option value="ignore">Initial Contact</option>
+                      <option value="today">Made Proposal</option>
+                      <option value="tomorrow">Negotiation</option>
+                      <option value="week">Contract Agreement</option>
+                      <option value="thismonth">Closed - won</option>
+                      <option value="thisquarter">Closed - lost</option>
+                    </select>
+                  </div>
+                  <div class="sub-penel-control">
+                  <div class="input-group">
+										<span class="input-group-addon">Sale</span>
+										<input type="text" placeholder="0" class="form-control" id="exampleAppPre">
+										<span class="input-group-addon">$</span>
+									</div>
+                  </div>
+                  <div>
+                  	<button class="btn btn-primary" type="button" style="line-height:25px;border:0px;">Save</button>
+                    <button class="btn btn-primary" type="button" style="line-height:25px;border:0px;">Cancel</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="content-header" class="clearfix" style="position:relative">
+                	<div class="row">
+                  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-lg-9">
+                      	<h1 class="pull-left" id="innerSubOptionBtn" style="line-height:38px; position:absolute; left:0px;"><a href="javascript:void(0);" id="headmenubtn" onClick="subOptionPenel();"><i class="fa fa-bars"></i></a>&nbsp;&nbsp;</h1>
+                        <input type="email" class="form-control pull-left" id="enterLeadTitle" placeholder="Full name">
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="col-lg-3">
+                        <button style="line-height:25px;border:0px;" type="button" class="btn btn-primary pull-right">Close</button>
+                        <span class="pull-right">&nbsp;&nbsp;</span>
+                        <button style="line-height:25px;border:0px;" type="button" class="btn btn-primary pull-right">Save & Close</button>
+                      <div class="clearfix"></div>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-5">
+                <div class="pull-left my-all">
+                  <a href="javascript:void(0)" class="active" style="line-height:20px;" onClick="leadpipelineview();" id="leadP">Note</a>
+                  <a href="javascript:void(0)" class="tabview-mid-option" style="line-height:20px;" onClick="leadlistview();" id="leadL">Task</a>
+                  <a href="javascript:void(0)" style="line-height:20px;" onClick="uploadfile();" id="leadF">File</a>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7">
+                <div class="pull-right">
+                      <div class="onoffswitch nomargin">
+                      <input type="checkbox" checked="" id="myonoffswitch" class="onoffswitch-checkbox" name="onoffswitch">
+                      <label for="myonoffswitch" class="onoffswitch-label">
+                        <div class="onoffswitch-inner"></div>
+                        <div class="onoffswitch-switch"></div>
+                      </label>
+                    </div>
+                  </div>
+                  <p class="pull-right" style="line-height:30px;">Note Task File Show contacts activities&nbsp;&nbsp;</p>
+              </div>
+            </div>
+            <br />
+            <div class="row" id="pipeLine">
+              <div class="col-lg-12">
+              	<div class="main-box clearfix">
+                <div class="main-box-body clearfix">
+              	<div class="form-group" id="noteDescTextarea">
+                	<br />
+									<label for="exampleTextarea" class="fullwidth">Today, 2:10PM | <a href="javascript:void(0);"><u>username</u></a><a href="javascript:void(0);" class="red pull-right"><u>Cancel</u></a></label>
+									<textarea rows="3" id="noteTextarea" class="form-control" onClick="revalidateContact();"></textarea>
+                  <br />
+                  <label for="exampleTextarea">Today, 2:10PM | <a href="javascript:void(0);"><u>username</u></a></label>
+                  <br />
+                  <br />
+                  <p><span>Created Nov 1, 2014 11:43 AM | <a href="javascript:void(0);"><u>username</u></a></span></p>
+								</div>
+                </div>
+                </div>
+                
+                <div class="main-box clearfix">
+               		<div class="main-box-body clearfix">
+                  	<br /><br />
+              			<div class="form-group">
+                    	<label>Select file to upload</label>
+                    	<input type="file" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="main-box clearfix">  
+                  <div class="main-box-body clearfix">
+                  	<div class="row">
+                    	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                      	<br />
+                        <div class="form-group">
+                        	<input type="text" class="form-control" placeholder="Select Data" id="example1">
+                        </div>
+                        <div class="form-group">
+                        <select name="somename" class="SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')" style="width:165px;">
+		                      <!--placeholder-->
+		                      <option value="ignore" class="call-opt">Call</option>
+                          <option value="today" class="latter-opt">Letter</option>
+                          <option value="tomorrow" class="meeting-opt">Meeting</option>
+                          <option value="week" class="other-opt">Other</option>
+		                    </select>
+                        </div>
+                      	
+                      </div>
+                      <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+		                  	<br />
+		                    <div class="form-group">
+		                			<form role="form" class="form-inline">
+												<div class="form-group">
+													<div id="toDoTimeDuration">
+                            <select class="SlectBox" placeholder="Select Resp. user">
+                            	<option value="ignore">All Day</option>
+                              <option value="ignore">8:00 PM</option>
+                              <option value="today">8:30 PM</option>
+                              <option value="tomorrow">9:00 PM</option>
+                              <option value="week">9:30 PM</option>
+                              <option value="thismonth">10:00 PM</option>
+                              <option value="thisquarter">10:30 PM</option>
+                            </select>
+				                  </div>
+												</div>
+												<div class="form-group">
+													<select class="form-control">
+														<option>sweta</option>
+														<option>ketan11111</option>
+														<option>sarju</option>
+													</select>
+												</div>
+											</form>
+		                    </div>
+                        <div class="form-group" id="taskDescTextarea">
+												<textarea rows="3" id="taskTextarea" class="form-control" onClick="revalidateContact();"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                      	<br />
+                  			<button style="line-height:25px;border:0px;" type="button" class="btn btn-primary" onClick="validateContact();">Done</button>
+                    		<button style="line-height:25px;border:0px;" type="button" class="btn btn-primary">Cancel</button>
+                  		</div>
+                    </div>  
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+            <div class="row" id="leadList">
+              <!-- Contact Table -->
+              <div class="col-lg-12">
+              	<div class="row">
+                	<div class="col-lg-12">
+	                	
+                	</div>
+                </div>
+              </div>
+              <!-- Contact Table -->  	
+            </div>
+            <div class="row" id="uploadFile">
+            	
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        <footer id="footer-bar" class="row">
+					<p id="footer-copyright" class="col-xs-12">
+						Powered by CRM Theme.
+					</p>
+				</footer>
+                
+			</div>
+		</div>
+    <!-- Document E ting -->
+	</div>
+		
+	<div id="config-tool" class="closed">
+		<a id="config-tool-cog">
+			<i class="fa fa-cog"></i>
+		</a>
+		
+		<div id="config-tool-options">
+    	<div style="display:none;">
+			<h4>Layout Options</h4>
+			<ul>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-header" checked/>
+						<label for="config-fixed-header">
+							Fixed Header
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-sidebar" checked/>
+						<label for="config-fixed-sidebar">
+							Fixed Left Menu
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-footer" checked/>
+						<label for="config-fixed-footer">
+							Fixed Footer
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-boxed-layout" />
+						<label for="config-boxed-layout">
+							Boxed Layout
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-rtl-layout" />
+						<label for="config-rtl-layout">
+							Right-to-Left
+						</label>
+					</div>
+				</li>
+			</ul>
+			<br/>
+			<h4>Skin Color</h4>
+      </div>
+			<ul id="skin-colors" class="clearfix">
+				<li>
+					<a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default" style="background-color: #34495e;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea" style="background-color: #1abc9c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #2980b9;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #3498db;">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- global scripts -->
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/validation.js"></script> <!-- only for demo -->
+	<script src="js/demo-skin-changer.js"></script> <!-- only for demo -->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.nanoscroller.min.js"></script>
+	
+	<script src="js/demo.js"></script> <!-- only for demo -->
+	
+	<!-- this page specific scripts -->
+	<script src="js/moment.min.js"></script>
+	<script src="js/gdp-data.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+	<script src="js/flot/jquery.flot.threshold.js"></script>
+	<script src="js/flot/jquery.flot.axislabels.js"></script>
+	<script src="js/jquery.sparkline.min.js"></script>
+  <script src="js/select2.min.js"></script>
+	
+	<!-- theme scripts -->
+	<script src="js/scripts.js"></script>
+	<script src="js/pace.min.js"></script>
+	
+	<!-- this page specific inline scripts -->
+  <script type="text/javascript">
+		//nice select boxes
+		$('#sel2').select2();
+		
+		$('#sel2Multi').select2({
+			placeholder: 'Select Recepientes',
+			allowClear: true
+		});
+		
+		$(document).ready(function () {
+    addElements();
+    $(function () {
+        $("#list1, #list2, #list3, #list4").sortable({
+            connectWith: ".lists",
+            cursor: "move"
+        }).disableSelection();
+    });
+	});
+
+	function addElements() {
+    $("#list1").empty().append(
+        "<div id='item1' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 1</b></a><br /><span class='details-desc'>$100</span></div></div>" +
+        "<div id='item3' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 2</b></a><br /><span class='details-desc'>$500</span></div></div>");
+		}
+	</script>
+
+  <script type="text/javascript">
+	function popupdiv(event){
+		//alert("function call");
+		if(event.target.id == "back_fader")
+    	{
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("overflow-x","");
+				$("#back_fader").css("overflow-y","");
+				$("#back_fader").css("position","fixed");
+				$("#back_fader").css("right","0px");
+				$("#back_fader").css("top","0px");
+				$("#back_fader").css("z-index","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+   		}
+	};
+	document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        //alert("Escape");
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("position","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("right","");
+				$("#back_fader").css("top","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+    }
+	};
+	function productdetailspopup(){
+//	$("#recentActivitys").css("display","block");
+//	$("#recentActivity").css("display","block");
+		document.body.style.overflow = 'hidden';
+		$("#back_fader").css("background-color","rgba(0, 0, 0, 0.50)");
+		$("#back_fader").css("position","fixed");
+		$("#back_fader").css("left","0px");
+		$("#back_fader").css("right","0px");
+		$("#back_fader").css("top","0px");
+		$("#back_fader").css("bottom","0px");		
+//	$("#popupContent").css("margin","50px 0px 35px 0px");
+//	$("#popupContent").css("background","#ffffff");
+//	$("#popupContent").css("position","static");
+//	$("#popupContent").css("z-index","10");
+//	$("#popupContent").css("box-shadow","0 3px 8px rgba(34, 25, 25, 0.4)");
+//	$("#popupContent").css("top","110px");
+		$("#content-wrapper").css("padding-left","230px");
+	}
+	</script>
+  <script type="text/javascript">
+		function uploadfile(){
+			$("#pipeLine").hide();
+			$("#leadList").hide();
+			$("#uploadFile").show();
+			$("#leadL").removeClass(" active ");
+			$("#leadP").removeClass(" active ");
+			$("#leadF").addClass(" active ");
+		}
+		function leadlistview(){
+			$("#pipeLine").hide();
+			$("#leadList").show();
+			$("#uploadFile").hide();
+			$("#leadL").addClass(" active ");
+			$("#leadP").removeClass(" active ");
+			$("#leadF").removeClass(" active ");
+		}
+		function leadpipelineview(){
+			$("#pipeLine").show();
+			$("#leadList").hide();
+			$("#uploadFile").hide();
+			$("#leadP").addClass(" active ");
+			$("#leadL").removeClass(" active ");
+			$("#leadF").removeClass(" active ");
+		}
+		$("#leadList").hide();
+		$("#uploadFile").hide();
+		function subOptionPenel(){
+			if($("#innerSubOptionBtn").is(":hidden")){
+				$("#enterLeadTitle").css("margin-left", "50px");
+				//alert("call");
+			}
+			else{
+				$("#enterLeadTitle").css("margin-left", "0px");
+			}
+			$("#subOptionpenel").toggle();
+			$("#content-wrapper").toggleClass("content-wrapper-noleftpadding");
+			$("#subOptionpenel").toggleClass("suboptionpenelposition");
+			$("#innerSubOptionBtn").toggle();
+			if(window.innerWidth < 1100){
+				$("#back_fader").toggleClass("back-fader-style");
+				$("#enterLeadTitle").css("margin-left", "50px");
+			}
+		}
+		window.onresize = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+				$("#enterLeadTitle").css("margin-left", "50px");
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+			}
+		}
+		window.onload = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+			}
+		}
+		$("#innerSubOptionBtn").css("display","none");
+		
+		function setpageheight(){
+			var pageheight = $("#subOptionpenel").height();
+			$("#content-wrapper").css("height",pageheight+125);	
+		}
+		setpageheight();
+	</script>
+  <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('#example1').datepicker({
+                    format: "dd/mm/yyyy"
+                });  
+            
+            });
+        </script>
+  	
+</body>
+</html>

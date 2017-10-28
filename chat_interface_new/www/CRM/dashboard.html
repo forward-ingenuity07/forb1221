@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>CRM</title>
+	
+	<!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+	
+	<!-- RTL support - for demo only -->
+	<script src="js/demo-rtl.js"></script>
+	<!-- 
+	If you need RTL support just include here RTL CSS file <link rel="stylesheet" type="text/css" href="css/libs/bootstrap-rtl.min.css" />
+	And add "rtl" class to <body> element - e.g. <body class="rtl"> 
+	-->
+	
+	<!-- libraries -->
+	<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+
+	<!-- global styles -->
+	<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css" />
+
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css" />
+	<link rel="stylesheet" href="css/libs/jquery-jvectormap-1.2.2.css" type="text/css" />
+	<link rel="stylesheet" href="css/libs/weather-icons.css" type="text/css" />
+	
+	<!-- Favicon -->
+	<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+
+	<!-- google font libraries -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+  
+  <!-- custome stylesheet -->
+  <link href="css/custome.css" type="text/css" rel="stylesheet">
+  <style type="text/css">
+	.main-box{
+		margin-bottom:8px;
+	}
+	ul.filer-time{
+		margin-bottom:0px !important;
+	}
+	ul.filer-time li{
+		display:inline;
+		line-height:50px;
+		padding:0px 10px;
+	}
+	ul.filer-time li a{
+		padding:15px 0px 14px 0px;
+		color:#ccc;
+		text-decoration:none;
+	}
+	ul.filer-time li a:hover{
+		color:#03a9f4;
+		text-decoration:none;
+	}
+	ul.filer-time li a.active{
+		color:#03a9f4;
+		border-bottom:2px solid #03a9f4;
+	}
+	html{
+		background-color:#fff;
+	}
+	body{
+		position:relative !important;
+	}
+	ul.recent-activity-dropdown,
+	ul.recent-activity-dropdown li,
+	ul.recent-activity-dropdown li a{
+		padding:3px !important;
+		border:0px;
+		font-size:14px;
+	}
+	</style>
+  
+  
+</head>
+<body>
+	<div id="theme-wrapper">
+		<header class="navbar" id="header-navbar">
+			<div class="container">
+				<a href="dashboard.html" id="logo" class="navbar-brand">
+					<img src="img/logo.png" alt="" class="normal-logo logo-white"/>
+					<img src="img/logo-black.png" alt="" class="normal-logo logo-black"/>
+					<img src="img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
+				</a>
+				
+				<div class="clearfix">
+				<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="fa fa-bars"></span>
+				</button>
+				
+				<div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+					<ul class="nav navbar-nav pull-left">
+						<li>
+							<a class="btn" id="make-small-nav">
+								<i class="fa fa-bars"></i>
+							</a>
+						</li>
+						<li class="dropdown hidden-xs">
+							<a class="btn dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-bell"></i>
+								<span class="count">8</span>
+							</a>
+							<ul class="dropdown-menu notifications-list">
+								<li class="pointer">
+									<div class="pointer-inner">
+										<div class="arrow"></div>
+									</div>
+								</li>
+								<li class="item-header">You have 6 new notifications</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-comment"></i>
+										<span class="content">New comment on ‘Awesome P...</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-plus"></i>
+										<span class="content">New user registration</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-envelope"></i>
+										<span class="content">New Message from George</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-shopping-cart"></i>
+										<span class="content">New purchase</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-eye"></i>
+										<span class="content">New order</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item-footer">
+									<a href="#">
+										View all notifications
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown hidden-xs">
+							<a class="btn dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-globe"></i>
+								<span class="count">16</span>
+							</a>
+							<ul class="dropdown-menu notifications-list messages-list">
+								<li class="pointer">
+									<div class="pointer-inner">
+										<div class="arrow"></div>
+									</div>
+								</li>
+								<li class="item first-item">
+									<a href="#">
+										<img src="img/samples/messages-photo-1.png" alt=""/>
+										<span class="content">
+											<span class="content-headline">
+												George Clooney
+											</span>
+											<span class="content-text">
+												Look, just because I don't be givin' no man a foot massage don't make it 
+												right for Marsellus to throw...
+											</span>
+										</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<img src="img/samples/messages-photo-2.png" alt=""/>
+										<span class="content">
+											<span class="content-headline">
+												Emma Watson
+											</span>
+											<span class="content-text">
+												Look, just because I don't be givin' no man a foot massage don't make it 
+												right for Marsellus to throw...
+											</span>
+										</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<img src="img/samples/messages-photo-3.png" alt=""/>
+										<span class="content">
+											<span class="content-headline">
+												Robert Downey Jr.
+											</span>
+											<span class="content-text">
+												Look, just because I don't be givin' no man a foot massage don't make it 
+												right for Marsellus to throw...
+											</span>
+										</span>
+										<span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+									</a>
+								</li>
+								<li class="item-footer">
+									<a href="#">
+										View all messages
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown hidden-xs">
+							<a class="btn dropdown-toggle" data-toggle="dropdown">
+              	<i class="fa fa-plus-circle"></i>
+								&nbsp;Add&nbsp;
+                <!--
+								<i class="fa fa-caret-down"></i>
+                -->
+							</a>
+							<ul class="dropdown-menu">
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-dollar"></i>
+										Lead
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-phone"></i> 
+										Contact
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-building-o"></i> 
+										Company
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+										<i class="fa fa-file-text"></i> 
+										To-Do
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown hidden-xs">
+							<a class="btn dropdown-toggle" data-toggle="dropdown">
+              	<i class="fa fa-dashboard"></i>
+								Dashboard&nbsp;
+                <!--
+								<i class="fa fa-caret-down"></i>
+                -->
+							</a>
+							<ul class="dropdown-menu">
+								<li class="item">
+									<a href="#">
+                  	<i class="fa fa-user"></i> 
+										My
+									</a>
+								</li>
+								<li class="item">
+									<a href="#">
+                  	<i class="fa fa-users"></i> 
+										All
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="nav-no-collapse pull-right" id="header-nav">
+					<ul class="nav navbar-nav pull-right">
+						<li class="mobile-search">
+							<a class="btn">
+								<i class="fa fa-search"></i>
+							</a>
+							
+							<div class="drowdown-search">
+								<form role="search">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Search...">
+										<i class="fa fa-search nav-search-icon"></i>
+									</div>
+								</form>
+							</div>
+							
+						</li>
+						<li class="dropdown profile-dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="img/samples/scarlet-159.png" alt=""/>
+								<span class="hidden-xs">kelly rohr</span> <b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right">
+								<li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+								<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+							</ul>
+						</li>
+						<li class="hidden-xxs">
+							<a class="btn">
+								<i class="fa fa-power-off"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				</div>
+			</div>
+		</header>
+		<div id="page-wrapper" class="container">
+			<div class="row">
+				<div id="nav-col">
+					<section id="col-left" class="col-left-nano">
+						<div id="col-left-inner" class="col-left-nano-content">
+							<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+								<img alt="" src="img/samples/scarlet-159.png" />
+								<div class="user-box">
+									<span class="name">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											kelly rohr 
+											<i class="fa fa-angle-down"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+											<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+											<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+										</ul>
+									</span>
+									<span class="status">
+										<i class="fa fa-circle"></i> Online
+									</span>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">	
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header nav-header-first hidden-sm hidden-xs">
+										Navigation
+									</li>
+									<li class="active">
+										<a href="dashboard.html">
+											<i class="fa fa-dashboard"></i>
+											<span>Dashboard</span>
+											<span class="label label-primary label-circle pull-right">28</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='leads.html'">
+											<i class="fa fa-dollar"></i>
+											<span>Leads</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='contacts.html'">
+											<i class="fa fa-phone"></i>
+											<span>Contacts</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='calander.html'">
+											<i class="fa fa-calendar"></i>
+											<span>Calendar</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="stats.html">
+											<i class="fa fa-bar-chart-o"></i>
+											<span>Stats</span>
+											<span class="label label-success pull-right">New</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='settings.html'">
+											<i class="fa fa-cog"></i>
+											<span>Settings</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+							<!--<li>
+										<a href="/angularjs">
+											<i class="fa fa-google"></i>
+											<span>AngularJS Demo</span>
+										</a>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</section>
+					<div id="nav-col-submenu"></div>
+				</div>
+				
+        	<div id="dashboardStatisticsDetails" style="position:relative;">
+        		<div class="page-dashboard" id="dashboardStatistics">
+            <div id="content-wrapper">
+						<div class="row">
+						<div class="col-lg-12">
+							<div class="row">
+								<div class="col-lg-12">
+									<div id="content-header" class="clearfix">
+                  	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    	<div class="row">
+                    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <h1 class="text-center" style="font-weight:600;color:#000;">kelly rohr</h1>
+                    		</div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                          
+                      <div class="icon-box pull-left">
+                      	<div class="pull-left my-all">
+                      	<a href="javascript:void(0)" style="line-height:20px;">My</a>
+                        <a href="javascript:void(0)" class="active" style="line-height:20px;">All</a>
+                        <div class="clearfix"></div>
+                        </div>
+                        <button class="btn btn-primary pull-left" type="button" style="line-height:25px;border:0px;">Add</button>
+												<a class="btn pull-left" href="#" onClick="productdetailspopup();" id="activityList">
+													<i class="fa fa-clock-o" style="font-size:20px;"></i>
+												</a>
+                        
+											</div>
+                    	</div>
+                      	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                      	<ul class="filer-time pull-right">
+                        	<li><a href="javascript:void(0)">Today</a></li>
+                          <li><a href="javascript:void(0)">This Week</a></li>
+                          <li><a href="javascript:void(0)" class="active">This Month</a></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    	</div>
+                      	
+                      </div>
+                    </div>
+									</div>
+								</div>
+                
+							</div>
+							
+							<div class="row">
+              	<div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 norightpadding">
+                	<div>
+                    <div>
+                      <div class="row">
+                      <!-- New Leads -->
+                      <div class="col-lg-5 col-md-6 col-sm-5 col-xs-12 nopadding">
+                        <!-- New Leads -->
+                        <div class="main-box clearfix">
+                          <header class="main-box-header clearfix lead-header">
+                            <h2 class="lead-heading">New Leads</h2>
+                          </header>
+                          <div class="statistics row">
+                            <div class="big-digit col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                              <span class="digit">0</span>
+                            </div>
+                            <div class="detail-info col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                              <div style="height:12px;">
+                              </div>
+                              <div class="details">
+                                <span class="details-val">-1<i class="fa fa-arrow-down"></i></span>
+                                <br />
+                                <span class="details-desc">Yesterday:1</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="statistics row">
+                            <div class="big-digit col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                              <div class="details">
+                              <span class="details-val">1</span>
+                              <br />
+                              <span class="details-desc">Total leads</span>
+                              </div>
+                            </div>
+                            <div class="detail-info col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                              <div class="details">
+                                <span class="details-val"><i class="fa  fa-dollar o"></i>100</span>
+                                <br />
+                                <span class="details-desc">Total budget</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="main-box-body clearfix">
+                            <div class="progress progress-striped progress-leads">
+                                <span class="value">0</span>
+                                <span class="progress-name">Initial Contact</span>
+                              <div class="progress-bar progress-bar-success lead-progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                                <span class="sr-only">40% Complete (success)</span>
+                              </div>
+                            </div>		
+                            <div class="progress progress-striped progress-leads">
+                                <span class="value">0</span>
+                                <span class="progress-name">Made Proposal</span>
+                              <div class="progress-bar progress-bar-info lead-progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                                <span class="sr-only">20% Complete</span>
+                              </div>
+                            </div>		
+                            <div class="progress progress-striped progress-leads">
+                                <span class="value">1</span>
+                                <span class="progress-name">Negotiation</span>
+                              <div class="progress-bar progress-bar-warning lead-progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <span class="sr-only">60% Complete (warning)</span>
+                              </div>
+                            </div>		
+                            <div class="progress progress-striped progress-leads">
+                              <span class="value">0</span>
+                              <span class="progress-name">Contract Agreement</span>
+                              <div class="progress-bar progress-bar-danger lead-progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+                              <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>		
+                          </div>
+                        </div>
+                        <!-- New Leads -->
+                        <!-- Goal -->
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
+                          <div class="main-box clearfix">
+                            <!-- Total To-dos -->
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nopadding">
+                                <header class="main-box-header clearfix lead-header">
+                                  <h2 class="lead-heading">Goal</h2>
+                                </header>
+                                <div class="statistics row">
+                                  <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    $000
+                                    <div class="bottom-line bg-greenylight" style="width:120px; margin-top:18px;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- Total To-dos -->
+                          </div>
+                        </div>
+                        <!-- Goal -->
+                      </div>
+                      <!-- New Leads -->
+                      
+                      <!-- Won Leads / Leads without To-do / Total To-dos / Completed / Notes added -->
+                      <div class="col-lg-7 col-md-6 col-sm-7 col-xs-12">
+                        <div class="row">
+                          <!-- Won Leads -->
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 norightpadding">
+                            <div class="main-box clearfix">
+                              <header class="main-box-header clearfix lead-header">
+                                <h2 class="lead-heading">Won Leads</h2>
+                              </header>
+                              <div class="statistics row">
+                              <div class="big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span class="digit">000</span>
+                              </div>
+                            </div>
+                              <br />
+                              <div class="statistics row">
+                              <div class="big-digit col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <div class="details">
+                                  <span class="details-val">-000<i class="fa fa-arrow-down"></i></span>
+                                  <div class="bottom-line bg-red"></div>
+                                </div>
+                              </div>
+                              <div class="detail-info col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="details">
+                                  <span class="details-val">000</span>
+                                  <div class="bottom-line bg-lightblue"></div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>	
+                          </div>
+                          <!-- Won Leads -->
+                          <!-- Leads without To-do -->
+                          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="main-box clearfix">
+                              <header class="main-box-header clearfix lead-header">
+                                <h2 class="lead-heading">Leads without To-do</h2>
+                              </header>
+                              <div class="statistics row">
+                                <div class="big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  <span class="digit">1</span>
+                                </div>
+                              </div>
+                              <div class="statistics row">
+                                <div class="big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  <div class="details">
+                                  <span class="details-val">0 Leads</span>
+                                  <br />
+                                  <span class="details-desc to-do-details-desc" style="display:block">With action planned in the period</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Leads without To-do -->
+                        </div>
+                        <div class="row">
+                          <!-- Total To-dos / Completed -->
+                          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="main-box clearfix">
+                              <!-- Total To-dos -->
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nopadding">
+                                <header class="main-box-header clearfix lead-header">
+                                  <h2 class="lead-heading">Total To-dos</h2>
+                                </header>
+                                <div class="statistics row">
+                                  <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    000
+                                    <div class="bottom-line bg-greenylight" style="width:50px;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Total To-dos -->
+                              <!-- Completed -->
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nopadding">
+                                <header class="main-box-header clearfix lead-header">
+                                  <h2 class="lead-heading">Completed</h2>
+                                </header>
+                                <div class="statistics row">
+                                  <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    000
+                                    <div class="bottom-line bg-red" style="width:60px;"></div>
+                                  </div>
+                                </div>
+                                <br />
+                              </div>
+                              <!-- Completed -->
+                              <br />
+                            </div>
+                          </div>
+                          <!-- Total To-dos / Completed -->
+                          <!-- Notes added -->
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 noleftpadding">
+                            <div class="main-box clearfix">
+                              <header class="main-box-header clearfix lead-header">
+                                <h2 class="lead-heading">Notes added</h2>
+                              </header>
+                              <div class="statistics row">
+                                <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  000
+                                  <div class="bottom-line bg-greenylight" style="width:50px;"></div>
+                                </div>
+                              </div>
+                              <br /> 
+                            </div>
+                          </div>
+                          <!-- Notes added -->
+                        </div>
+                        <div class="row">
+                          <!-- Lost leads / Failed To-dos -->
+                          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="main-box clearfix">
+                              <!-- Lost leads -->
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nopadding">
+                                <header class="main-box-header clearfix lead-header">
+                                  <h2 class="lead-heading">Lost leads</h2>
+                                </header>
+                                <div class="statistics row">
+                                  <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    00
+                                    <div class="bottom-line bg-greenylight" style="width:50px;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- Lost leads -->
+                              <!-- Failed To-dos -->
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nopadding">
+                                <header class="main-box-header clearfix lead-header">
+                                  <h2 class="lead-heading">Failed To-dos</h2>
+                                </header>
+                                <div class="statistics row">
+                                  <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    000
+                                    <div class="bottom-line bg-red" style="width:60px;"></div>
+                                  </div>
+                                </div>
+                                <br />
+                              </div>
+                              <!-- Failed To-dos -->
+                              <br />
+                            </div>
+                          </div>
+                          <!-- Total To-dos / Completed -->
+                          <!-- Emails -->
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 noleftpadding">
+                            <div class="main-box clearfix">
+                              <header class="main-box-header clearfix lead-header">
+                                <h2 class="lead-heading">Emails</h2>
+                              </header>
+                              <div class="statistics row">
+                                <div class="small-big-digit col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                  000
+                                  <div class="bottom-line bg-greenylight" style="width:50px;"></div>
+                                </div>
+                              </div>
+                              <br /> 
+                            </div>
+                          </div>
+                          <!-- Emails -->
+                        </div>
+                      </div>
+                      <!-- Won Leads / Leads without To-do / Total To-dos / Completed / Notes added -->
+                    	</div>
+                      <br />
+                      <div class="row">
+                      <div class="col-lg-12" style="overflow-x:scroll;">
+                      	<div style="width:1128px;">
+                      	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                        <div class="lead-stage-title" style="border-bottom:2px solid #99ccff">
+                          <p>Initial Contact</p>
+                          0 leads: $0
+                        </div>
+                        <div id="list1" class="lists">
+                        </div>
+                      </div>
+                      	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                        <div class="lead-stage-title" style="border-bottom:2px solid #ffff99">
+                          <p>Made Proposal</p>
+                          -1 leads: -$100
+                        </div>
+                        <div id="list2" class="lists">
+                        </div>
+                      </div>
+                      	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                        <div class="lead-stage-title" style="border-bottom:2px solid #ffcc66">
+                          <p>Negotiation</p>
+                          3 leads: $300
+                        </div>
+                        <div id="list3" class="lists">
+                        </div>
+                      </div>
+                      	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                        <div class="lead-stage-title" style="border-bottom:2px solid #ffcccc">
+                          <p>Contract Agreement</p>
+                          0 leads: $0
+                        </div>
+                        <div id="list4" class="lists">
+                        </div>
+                      </div>
+                      	</div>
+                    	</div>
+                    </div>
+                      <br />
+                      <div class="row">
+                      <!-- Contact Table -->
+                      <div class="col-lg-12 noleftpadding">
+                        <div class="main-box clearfix">
+                          <header class="main-box-header clearfix">
+                            <h3 class="pull-left" style="margin:12px 0px;">Contacts</h3>
+                            <div class="filter-block pull-right">
+                              <div class="form-group pull-left">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <i class="fa fa-search search-icon"></i>
+                              </div>
+                              <a href="#" class="btn btn-primary pull-right">
+                                <i class="fa fa-eye fa-lg"></i> View all orders
+                              </a>
+                            </div>
+                          </header>
+                          <div class="main-box-body clearfix">
+                            <div class="table-responsive clearfix">
+                              <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th><a href="#"><span>Name</span></a></th>
+                                    <th><a href="#" class="desc"><span>Company</span></a></th>
+                                    <th><a href="#" class="asc"><span>Phone</span></a></th>
+                                    <th class="text-center"><span>Email</span></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>name</td>
+                                    <td>company name</td>
+                                    <td><a href="#">5432167891</a></td>
+                                    <td class="text-center">email@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>name</td>
+                                    <td>company name</td>
+                                    <td><a href="#">5432167891</a></td>
+                                    <td class="text-center">email@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>name</td>
+                                    <td>company name</td>
+                                    <td><a href="#">5432167891</a></td>
+                                    <td class="text-center">email@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>name</td>
+                                    <td>company name</td>
+                                    <td><a href="#">5432167891</a></td>
+                                    <td class="text-center">email@gmail.com</td>
+                                  </tr>
+                                  <tr>
+                                    <td>name</td>
+                                    <td>company name</td>
+                                    <td><a href="#">5432167891</a></td>
+                                    <td class="text-center">email@gmail.com</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Contact Table -->  	
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
+              	
+                
+              </div>
+              
+              <!--
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="main-box clearfix">
+										<header class="main-box-header clearfix">
+											<h2>Todo</h2>
+										</header>
+										
+										<div class="main-box-body clearfix">
+	
+											<ul class="widget-todo">
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-1" />
+															<label for="todo-1">
+																New products introduction <span class="label label-danger">High Priority</span>
+															</label>
+														</div>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-2" />
+															<label for="todo-2">
+																Checking the stock <span class="label label-success">Low Priority</span>
+															</label>
+														</div>
+													</div>
+													<div class="actions">
+														<a href="#" class="table-link">
+															<i class="fa fa-pencil"></i>
+														</a>
+														<a href="#" class="table-link danger">
+															<i class="fa fa-trash-o"></i>
+														</a>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-3" checked="checked" />
+															<label for="todo-3">
+																Buying coffee <span class="label label-warning">Medium Priority</span>
+															</label>
+														</div>
+													</div>
+													<div class="actions">
+														<a href="#" class="table-link">
+															<i class="fa fa-pencil"></i>
+														</a>
+														<a href="#" class="table-link danger">
+															<i class="fa fa-trash-o"></i>
+														</a>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-4" />
+															<label for="todo-4">
+																New marketing campaign <span class="label label-success">Low Priority</span>
+															</label>
+														</div>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-5" />
+															<label for="todo-5">
+																Calling Mom <span class="label label-warning">Medium Priority</span>
+															</label>
+														</div>
+													</div>
+													<div class="actions">
+														<a href="#" class="table-link badge">
+															<i class="fa fa-cog"></i>
+														</a>
+													</div>
+												</li>
+												<li class="clearfix">
+													<div class="name">
+														<div class="checkbox-nice">
+															<input type="checkbox" id="todo-6" />
+															<label for="todo-6">
+																Ryan's birthday <span class="label label-danger">High Priority</span>
+															</label>
+														</div>
+													</div>
+												</li>
+											</ul>
+												
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="main-box weather-box">
+										<header class="main-box-header clearfix">
+											<h2 class="pull-left">Weather now</h2>
+										</header>
+										
+										<div class="main-box-body clearfix">
+											<div class="current">
+												<div class="clearfix center-block" style="width: 220px;">
+													<canvas class="icon" id="current-weather" width="100" height="100"></canvas>
+													<div class="temp-wrapper">
+														<div class="temperature">
+															-10<span class="sign">°</span>
+														</div>
+														<div class="desc">
+															<i class="fa fa-map-marker"></i> New York
+														</div>	
+													</div>
+												</div>
+											</div>
+
+											<div class="next">
+												<ul class="clearfix">
+													<li>
+														<div class="day">
+															MON
+														</div>
+														<div class="icon" title="Hot" data-toggle="tooltip">
+															<i class="wi wi-hot"></i>
+														</div>
+														<div class="temperature">
+															45<span class="sign">°</span>
+														</div>
+													</li>
+													<li>
+														<div class="day">
+															TUE
+														</div>
+														<div class="icon" title="Showers" data-toggle="tooltip">
+															<i class="wi wi-day-showers"></i>
+														</div>
+														<div class="temperature">
+															28<span class="sign">°</span>
+														</div>
+													</li>
+													<li>
+														<div class="day">
+															WED
+														</div>
+														<div class="icon" title="Cloudy" data-toggle="tooltip">
+															<i class="wi wi-cloudy-windy"></i>
+														</div>
+														<div class="temperature">
+															16<span class="sign">°</span>
+														</div>
+													</li>
+													<li>
+														<div class="day">
+															THU
+														</div>
+														<div class="icon" title="Thunderstom" data-toggle="tooltip">
+															<i class="wi wi-thunderstorm"></i>
+														</div>
+														<div class="temperature">
+															18<span class="sign">°</span>
+														</div>
+													</li>
+													<li>
+														<div class="day">
+															FRI
+														</div>
+														<div class="icon" title="Lightning" data-toggle="tooltip">
+															<i class="wi wi-night-alt-lightning"></i>
+														</div>
+														<div class="temperature">
+															22<span class="sign">°</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-lg-8 col-md-12 col-xs-12">
+									<div class="main-box">
+										<header class="main-box-header clearfix">
+											<h2 class="pull-left">Visitors location</h2>
+											
+											<div class="icon-box pull-right">
+												<a href="#" class="btn pull-left">
+													<i class="fa fa-refresh"></i>
+												</a>
+												<a href="#" class="btn pull-left">
+													<i class="fa fa-cog"></i>
+												</a>
+											</div>
+										</header>
+										
+										<div class="main-box-body clearfix">
+											<div class="row">
+												<div class="col-md-5">
+													<div class="map-stats">
+														<div class="table-responsive">
+															<table class="table table-condensed table-hover">
+																<thead>
+																	<tr>
+																		<th><span>Country</span></th>
+																		<th class="text-center"><span>Last Visit</span></th>
+																		<th class="text-center"><span>Status</span></th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			USA
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status green">
+																			<i class="fa fa-level-up"></i> 27%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Russia
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status red">
+																			<i class="fa fa-level-down"></i> 43%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			China
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status green">
+																			<i class="fa fa-level-up"></i> 18%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			India
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status green">
+																			<i class="fa fa-level-up"></i> 63%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Australia
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status red">
+																			<i class="fa fa-level-down"></i> 82%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Canada
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status red">
+																			<i class="fa fa-level-down"></i> 11%
+																		</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			Argentina
+																		</td>
+																		<td class="text-center">
+																			2013/08/08
+																		</td>
+																		<td class="text-center status green">
+																			<i class="fa fa-level-up"></i> 74%
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-7">
+													<div id="world-map" style="width: 100%; height: 400px"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							-->
+						</div>
+					</div>
+					</div>
+						<footer id="footer-bar" class="row">
+						<p id="footer-copyright" class="col-xs-12">
+							Powered by CRM Theme.
+						</p>
+					</footer>
+          </div>
+				</div>
+        <div id="back_fader" onClick="popupdiv(event)">
+        	<div id="popupContent">
+          	<div id="recentActivitys" style="position:absolute; right:0px; top:50px; width:377px;">
+            <div class="main-box feed" id="recentActivity">
+              <header class="main-box-header clearfix">
+                <h2>
+                  <span class="pull-left">Recent Activity</span>
+                  <ul class="pull-right">
+                    <li class="dropdown profile-dropdown" style="padding:0px !important; z-index:9;">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+												<i class="fa fa-eye"></i>
+											</a>
+											<ul class="dropdown-menu dropdown-menu-right recent-activity-dropdown">
+				              	<li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-1" checked="checked" /><label for="checkbox-1">New lead</label></div></a></li>
+												<li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-2" checked="checked" /><label for="checkbox-1">New contact</label></div></a></li>
+												<li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-3" checked="checked" /><label for="checkbox-1">Lead status was changed</label></div></a></li>
+												<li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-4" checked="checked" /><label for="checkbox-1">New note</label></div></a></li>
+				                <li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-5" checked="checked" /><label for="checkbox-1">New Email</label></div></a></li>
+				                <li><a href="#"><div class="checkbox-nice"><input type="checkbox" id="checkbox-6" checked="checked" /><label for="checkbox-1">New Company</label></div></a></li>
+											</ul>
+										</li>
+                  </ul>
+                </h2>
+              </header>
+              <div class="main-box-body clearfix" style="background-color:#f7f7f7">
+                <ul>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-warning">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-success">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-primary">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                  <li class="clearfix">
+                    <div class="img">
+                      <i class="fa fa-exclamation-circle" style="font-size:20px; color:#ccc;"></i>
+                    </div>
+                    <div class="title">
+                      <span class="post-time">Apr 10, 2015 5:43 AM, </span><b>Robert Andru</b><br />New status: <span class="label label-danger">Made Proposal</span>
+                    </div>
+                    <div class="post-time">
+                      
+                    </div>
+                    <div class="time-ago">
+                      <i class="fa fa-check-square"></i> in <a href="#"><u>Lead1</u></a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+				</div>        
+			</div>
+		</div>
+	</div>
+		
+    
+	<div id="config-tool" class="closed">
+		<a id="config-tool-cog">
+			<i class="fa fa-cog"></i>
+		</a>
+		
+		<div id="config-tool-options">
+    	<div style="display:none">
+			<h4>Layout Options</h4>
+			<ul>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-header" checked/>
+						<label for="config-fixed-header">
+							Fixed Header
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-sidebar" checked/>
+						<label for="config-fixed-sidebar">
+							Fixed Left Menu
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-footer" checked/>
+						<label for="config-fixed-footer">
+							Fixed Footer
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-boxed-layout" />
+						<label for="config-boxed-layout">
+							Boxed Layout
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-rtl-layout" />
+						<label for="config-rtl-layout">
+							Right-to-Left
+						</label>
+					</div>
+				</li>
+			</ul>
+			<br/>
+			<h4>Skin Color</h4>
+      </div>
+			<ul id="skin-colors" class="clearfix">
+				<li>
+					<a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default" style="background-color: #34495e;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea" style="background-color: #1abc9c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #2980b9;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #3498db;">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- global scripts -->
+  <script src="js/jquery1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/demo-skin-changer.js"></script> <!-- only for demo -->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.nanoscroller.min.js"></script>
+	
+	<script src="js/demo.js"></script> <!-- only for demo -->
+	
+	<!-- this page specific scripts -->
+	<script src="js/moment.min.js"></script>
+	<script src="js/gdp-data.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+	<script src="js/flot/jquery.flot.threshold.js"></script>
+	<script src="js/flot/jquery.flot.axislabels.js"></script>
+	<script src="js/jquery.sparkline.min.js"></script>
+	
+	<!-- theme scripts -->
+	<script src="js/scripts.js"></script>
+	<script src="js/pace.min.js"></script>
+	
+	<!-- this page specific inline scripts -->
+	<script>
+	$(document).ready(function() {
+		
+	    //CHARTS
+	    function gd(year, day, month) {
+			return new Date(year, month - 1, day).getTime();
+		}
+		
+	    
+
+
+	});
+	</script>
+  
+  <script type="text/javascript">
+		$(document).ready(function () {
+    addElements();
+    $(function () {
+        $("#list1, #list2, #list3, #list4").sortable({
+            connectWith: ".lists",
+            cursor: "move"
+        }).disableSelection();
+    });
+	});
+
+	function addElements() {
+    $("#list1").empty().append(
+        "<div id='item1' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 1</b></a><br /><span class='details-desc'>$100</span></div></div>" +
+        "<div id='item3' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 2</b></a><br /><span class='details-desc'>$500</span></div></div>");
+		}
+	</script>
+
+	<script type="text/javascript">
+		
+		if($(window).width() >= 1200)
+		{
+			//alert($(window).width());
+			jQuery(function($) {
+	  	function fixDiv() {
+				//alert("hi");
+				var $cache = $('#dashboardStatistics');
+				//alert($cache.scrollHeight);
+				var $contentheight = $("#dashboardStatistics").height();
+				var offsetHeight = $('#dashboardStatistics').height();
+				var offsetHeightdiv = $('#recentActivity').height();
+					
+				//alert("offset"+offsetHeight);
+				//alert("offset1"+offsetHeightdiv);
+				//alert("window"+$(document).scrollTop());
+					
+				if(offsetHeight < offsetHeightdiv)
+				{
+				//alert("yes");
+				//alert(offsetHeight);
+				//alert(offsetHeightdiv);
+				//alert(offsetHeight);
+				
+					if ($(document).scrollTop() >= ((Number(offsetHeight)+(50)) - ($( window ).height()))){
+						$('#dashboardStatistics').width();
+						$('#dashboardStatistics').width(Number($('#dashboardStatisticsDetails').width()));
+						//alert(offsetHeight);
+						$cache.css({
+						'position': 'fixed',
+						'bottom': '0px'
+						});
+					}
+					else if($(window).scrollTop() + $(window).height() == $(document).height()){
+						alert("bottom");
+						$cache.css({
+							'position': 'relative',
+							'top': 'auto'
+						});
+					}
+					else{
+						$cache.css({
+							'position': 'relative',
+							'top': 'auto'
+						});
+					}
+				}
+			}
+	  	$(window).scroll(fixDiv);
+	  	fixDiv();
+		});
+		
+		}
+		else{
+			$cache.css({
+				'position': 'relative',
+				'top': 'auto'
+			});
+		}
+		
+	</script>
+  <script type="text/javascript">
+	window.onresize = function() {
+		//alert("resize");
+		if($(window).width() >= 1200)
+		{
+			//alert($(window).width());
+			jQuery(function($) {
+	  	function fixDiv() {
+				//alert("hi");
+				var $cache = $('#dashboardStatistics');
+				//alert($cache.scrollHeight);
+				var $contentheight = $("#dashboardStatistics").height();
+				var offsetHeight = $('#dashboardStatistics').height();
+				var offsetHeightdiv = $('#recentActivity').height();
+					
+				//alert("offset"+offsetHeight);
+				//alert("offset1"+offsetHeightdiv);
+				//alert("window"+$(document).scrollTop());
+					
+				if(offsetHeight < offsetHeightdiv)
+				{
+				//alert("yes");
+				//alert(offsetHeight);
+				//alert(offsetHeightdiv);
+				//alert(offsetHeight);
+				
+					if ($(document).scrollTop() >= ((Number(offsetHeight)+(50)) - ($( window ).height()))){
+						$('#dashboardStatistics').width();
+						$('#dashboardStatistics').width(Number($('#dashboardStatisticsDetails').width()));
+						//alert(offsetHeight);
+						$cache.css({
+						'position': 'fixed',
+						'bottom': '0px'
+						});
+					}
+					else {
+						$cache.css({
+							'position': 'relative',
+							'top': 'auto'
+						});
+					}
+				}
+			}
+	  	$(window).scroll(fixDiv);
+	  	fixDiv();
+		});
+		
+		}
+	};
+	function recentactivity(){
+		//alert("function Call");
+//	$("#recentActivitys").css("display","none");
+//	$("#recentActivitys").css("position","fixed");
+//	$("#recentActivitys").css("right","0px");
+//	$("#recentActivitys").css("top","0px");
+		$("#recentActivity").css("display","block");
+		
+	}
+//$('#recentActivitys').toggle(function () {
+//  $("#recentActivitys").css("display","block");
+//}, function () {
+//   $("#recentActivitys").css("display","none");
+//});
+	</script>
+  
+  <script>
+	function popupdiv(event){
+		if(event.target.id == "back_fader")
+    	{
+				$("#popupContent").css("display","");
+				$("#recentActivitys").css("display","");
+				$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("overflow-x","");
+				$("#back_fader").css("overflow-y","");
+				$("#back_fader").css("position","absolute");
+				$("#back_fader").css("right","0px");
+				$("#back_fader").css("top","0px");
+				$("#back_fader").css("z-index","");
+				$("#back_fader").css("bottom","");
+				$("#popupContent").css("margin","");
+				$("#popupContent").css("background","");
+				$("#popupContent").css("position","");
+				$("#popupContent").css("z-index","");
+				$("#popupContent").css("box-shadow","");
+				$("#popupContent").css("top","");
+				document.body.style.overflow = 'auto';
+//			$("#back_fader").css("position","absolute");
+//			$("#back_fader").css("right","0px");
+//			$("#back_fader").css("top","0px");
+//			$("#back_fader").css("width","377px");
+   		}
+	};
+	document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        //alert("Escape");
+				$("#back_fader").css("display","");
+				$("#popupContent").css("display","");
+				$("#recentActivitys").css("display","");
+				$("#recentActivity").css("display","");	
+				$("#back_fader").css("background-color","");
+				$("#back_fader").css("left","auto");
+				$("#back_fader").css("overflow-x","");
+				$("#back_fader").css("overflow-y","");
+				$("#back_fader").css("position","absolute");
+				$("#back_fader").css("right","0px");
+				$("#back_fader").css("top","0px");
+				$("#back_fader").css("z-index","");
+				$("#back_fader").css("bottom","");
+				$("#popupContent").css("margin","");
+				$("#popupContent").css("background","");
+				$("#popupContent").css("position","");
+				$("#popupContent").css("z-index","");
+				$("#popupContent").css("box-shadow","");
+				$("#popupContent").css("top","");
+				document.body.style.overflow = 'auto';
+    }
+	};
+	function productdetailspopup(){
+	$("#recentActivitys").css("display","block");
+	$("#recentActivity").css("display","block");
+	document.body.style.overflow = 'hidden';
+	$("#back_fader").css("background-color","rgba(0, 0, 0, 0.50)");
+	$("#back_fader").css("left","0");
+	$("#back_fader").css("overflow-x","auto");
+	$("#back_fader").css("overflow-y","scroll");
+	$("#back_fader").css("position","fixed");
+	$("#back_fader").css("right","0");
+	$("#back_fader").css("top","0");
+	$("#back_fader").css("z-index","9999");
+	$("#back_fader").css("bottom","0");
+	$("#popupContent").css("margin","50px 0px 35px 0px");
+	$("#popupContent").css("background","#ffffff");
+	$("#popupContent").css("position","static");
+	$("#popupContent").css("z-index","10");
+	$("#popupContent").css("box-shadow","0 3px 8px rgba(34, 25, 25, 0.4)");
+	$("#popupContent").css("top","110px");
+//	alert("hi");
+//	display: none;
+//	bottom: 0;
+//	left: 0;
+//	overflow-x: auto;
+//	overflow-y: scroll;
+//	position: fixed;
+//	right: 0;
+//	top: 0;
+//	z-index: 9999;
+	
+//$("#recentActivity").css("display","block");
+//$("#activityOverlay").css("display","block");
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>CRM: Leads mode, username</title>
+	
+	<!-- bootstrap stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css" />
+	
+	<!-- RTL support - for demo only -->
+	<script src="js/demo-rtl.js"></script>
+	<!-- 
+	If you need RTL support just include here RTL CSS file <link rel="stylesheet" type="text/css" href="css/libs/bootstrap-rtl.min.css" />
+	And add "rtl" class to <body> element - e.g. <body class="rtl"> 
+	-->
+	
+	<!-- font libraries -->
+	<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css" />
+  
+  <!-- scrollbar stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css" />
+	
+	<!-- global styles -->
+	<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css" />
+
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="css/libs/daterangepicker.css" type="text/css" />
+	
+	<!-- Favicon -->
+	<link type="image/x-icon" href="favicon.png" rel="shortcut icon" />
+
+	<!-- google font libraries -->
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+  
+  <!-- custome stylesheet -->
+  <link href="css/custome.css" type="text/css" rel="stylesheet">
+  
+  <!-- page specific stylesheet -->
+  <style type="text/css">
+		.main-box{margin-bottom:8px;}
+		ul.filer-time{margin-bottom:0px !important;}
+		ul.filer-time li{display:inline;line-height:50px;padding:0px 10px;}
+		ul.filer-time li a{padding:15px 0px 14px 0px;color:#ccc;text-decoration:none;}
+		ul.filer-time li a:hover{color:#03a9f4;text-decoration:none;}
+		ul.filer-time li a.active{color:#03a9f4;border-bottom:2px solid #03a9f4;}
+		html{background-color:#fff;}
+		body{position:relative !important;}
+		ul.recent-activity-dropdown,
+		ul.recent-activity-dropdown li,
+		ul.recent-activity-dropdown li a{padding:3px !important;border:0px;font-size:14px;}
+		#content-wrapper{margin-right:0px !important; padding-left:230px;}
+	</style>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="jquery.sumoselect.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 3 });
+      window.test = $('.testsel').SumoSelect({okCancelInMulti:true });
+      window.testSelAll = $('.testSelAll').SumoSelect({okCancelInMulti:true, selectAll:true });
+      window.testSelAll2 = $('.testSelAll2').SumoSelect({selectAll:true });
+    });
+  </script>
+  <link href="sumoselect.css" rel="stylesheet" />
+</head>
+<body>
+	<div id="theme-wrapper">
+  	<!-- Header S ting -->
+		<header class="navbar" id="header-navbar">
+			<div class="container">
+      	<!--Logo S ting-->
+				<a href="dashboard.html" id="logo" class="navbar-brand">
+					<img src="img/logo.png" alt="" class="normal-logo logo-white"/>
+					<img src="img/logo-black.png" alt="" class="normal-logo logo-black"/>
+					<img src="img/logo-small.png" alt="" class="small-logo hidden-xs hidden-sm hidden"/>
+				</a>
+        <!--Logo E ding-->
+        <!--Else I tem-->
+				<div class="clearfix">
+          <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bars"></span>
+          </button>
+          <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+            <ul class="nav navbar-nav pull-left">
+              <li>
+                <a class="btn" id="make-small-nav">
+                  <i class="fa fa-bars"></i>
+                </a>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell"></i>
+                  <span class="count">8</span>
+                </a>
+                <ul class="dropdown-menu notifications-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item-header">You have 6 new notifications</li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-comment"></i>
+                      <span class="content">New comment on ‘Awesome P...</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-plus"></i>
+                      <span class="content">New user registration</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-envelope"></i>
+                      <span class="content">New Message from George</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-shopping-cart"></i>
+                      <span class="content">New purchase</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-eye"></i>
+                      <span class="content">New order</span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all notifications
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-globe"></i>
+                  <span class="count">16</span>
+                </a>
+                <ul class="dropdown-menu notifications-list messages-list">
+                  <li class="pointer">
+                    <div class="pointer-inner">
+                      <div class="arrow"></div>
+                    </div>
+                  </li>
+                  <li class="item first-item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-1.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          George Clooney
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-2.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Emma Watson
+                        </span>
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <img src="img/samples/messages-photo-3.png" alt=""/>
+                      <span class="content">
+                        <span class="content-headline">
+                          Robert Downey Jr.
+                        </span>
+
+                        <span class="content-text">
+                          Look, just because I don't be givin' no man a foot massage don't make it 
+                          right for Marsellus to throw...
+                        </span>
+                      </span>
+                      <span class="time"><i class="fa fa-clock-o"></i>13 min.</span>
+                    </a>
+                  </li>
+                  <li class="item-footer">
+                    <a href="#">
+                      View all messages
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-plus-circle"></i>
+                  &nbsp;Add&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-dollar"></i>
+                      Lead
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-phone"></i> 
+                      Contact
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-building-o"></i> 
+                      Company
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-file-text"></i> 
+                      To-Do
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown hidden-xs">
+                <a class="btn dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-dashboard"></i>
+                  Dashboard&nbsp;<!--<i class="fa fa-caret-down"></i>-->
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-user"></i> 
+                      My
+                    </a>
+                  </li>
+                  <li class="item">
+                    <a href="#">
+                      <i class="fa fa-users"></i> 
+                      All
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="nav-no-collapse pull-right" id="header-nav">
+            <ul class="nav navbar-nav pull-right">
+              <li class="mobile-search">
+                <a class="btn">
+                  <i class="fa fa-search"></i>
+                </a>
+                <div class="drowdown-search">
+                  <form role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search...">
+                      <i class="fa fa-search nav-search-icon"></i>
+                    </div>
+                  </form>
+                </div>
+              </li>
+              <li class="dropdown profile-dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="img/samples/scarlet-159.png" alt=""/>
+                  <span class="hidden-xs">kelly rohr</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+                  <li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+                  <li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+                </ul>
+              </li>
+              <li class="hidden-xxs">
+                <a class="btn">
+                  <i class="fa fa-power-off"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+				</div>
+        <!--Else I tem-->
+			</div>
+		</header>
+    <!-- Header E ting -->
+    <!-- Document S ting -->
+		<div id="page-wrapper" class="container">
+			<div class="row">
+      	<!-- Nevigation opt col s ting -->
+				<div id="nav-col">
+					<section id="col-left" class="col-left-nano">
+						<div id="col-left-inner" class="col-left-nano-content">
+							<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
+								<img alt="" src="img/samples/scarlet-159.png" />
+								<div class="user-box">
+									<span class="name">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											kelly rohr 
+											<i class="fa fa-angle-down"></i>
+										</a>
+										<ul class="dropdown-menu">
+											<li><a href="user-profile.html"><i class="fa fa-user"></i>Profile</a></li>
+											<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+											<li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
+											<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+										</ul>
+									</span>
+									<span class="status">
+										<i class="fa fa-circle"></i> Online
+									</span>
+								</div>
+							</div>
+							<div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">	
+								<ul class="nav nav-pills nav-stacked">
+									<li class="nav-header nav-header-first hidden-sm hidden-xs">
+										Navigation
+									</li>
+									<li>
+										<a href="dashboard.html">
+											<i class="fa fa-dashboard"></i>
+											<span>Dashboard</span>
+											<span class="label label-primary label-circle pull-right">28</span>
+										</a>
+									</li>
+									<li class="active">
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='leads.html'">
+											<i class="fa fa-dollar"></i>
+											<span>Leads</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onclick="window.location.href='contacts.html'">
+											<i class="fa fa-phone"></i>
+											<span>Contacts</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='calander.html'">
+											<i class="fa fa-calendar"></i>
+											<span>Calendar</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+									<li>
+										<a href="stats.html">
+											<i class="fa fa-bar-chart-o"></i>
+											<span>Stats</span>
+											<span class="label label-success pull-right">New</span>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="dropdown-toggle" onClick="window.location.href='settings.html'">
+											<i class="fa fa-cog"></i>
+											<span>Settings</span>
+											<i class="fa fa-angle-right drop-icon"></i>
+										</a>
+									</li>
+							<!--<li>
+										<a href="/angularjs">
+											<i class="fa fa-google"></i>
+											<span>AngularJS Demo</span>
+										</a>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</section>
+					<div id="nav-col-submenu"></div>
+				</div>
+				<!-- Nevigation opt col E ting -->
+        <div id="content-wrapper">
+        	<div id="back_fader" onClick="popupdiv(event)">
+        	<div class="suboptions" id="subOptionpenel" style="width:215px; position:absolute; height:100%; top:0px; left:0px; background-color:#f9f9f9; z-index:99;">
+            <div id="content-header" class="clearfix nomargin">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 style="line-height:72px; padding-left:0px;">Leads<span class="pull-right"><a href="javascript:void(0);" onClick="subOptionPenel();"><i class="fa fa-bars"></i></a></span></h1>
+              </div>
+            </div>
+            <ul>
+            	<li><a href="javascript:void(0);" class="active">Active leads</a></li>
+              <li><a href="javascript:void(0);">My leads</a></li>
+              <li><a href="javascript:void(0);">Won leads</a></li>
+              <li><a href="javascript:void(0);">Lost leads</a></li>
+              <li><a href="javascript:void(0);">Leads without To-dos</a></li>
+              <li><a href="javascript:void(0);">Leads with failed To-dos</a></li>
+              <li><p class="sub-penel-heading">New filter</p></li>
+              <li>
+              	<div class="sub-penel-control">
+                <select name="somename" class="SlectBox" onclick="console.log($(this).val())" onchange="console.log('change is firing')">
+					        <option disabled="disabled" selected="selected">When</option>
+					        <!--placeholder-->
+					        <option value="today">Today</option>
+					        <option value="thisweek">This week</option>
+					        <option value="lastweek">Last week</option>
+					        <option value="thismonth">This month</option>
+                  <option value="thisquarter">This quarter</option>
+                  <option value="period">Period</option>
+						    </select>
+                </div>
+              </li>
+              <li>  
+              	<div class="sub-penel-control">
+           			<select multiple="multiple" placeholder="All statuses" onchange="console.log($(this).children(':selected').length)" class="testSelAll2">
+									<option value="withoutopenleads">Without open leads</option>
+								  <option value="initialcontact">Initial Contact</option>
+								  <option value="madeproposal">Made Proposal</option>
+								  <option value="negotiation">Negotiation</option>
+								  <option value="contractagreement">Contract Agreement</option>
+								  <option value="closedwon">Closed - won</option>
+								  <option value="closedlost">Closed - lost</option>
+								</select>
+                </div>     
+              </li>
+              <li><span>Responsible users</span></li>
+              <li>
+              <div class="sub-penel-control">
+           			<select multiple="multiple" placeholder="Responsible" onchange="console.log($(this).children(':selected').length)" class="testSelAll2">
+									<option value="member1">Sales Team Member 1</option>
+								  <option value="member2">Sales Team Member 2</option>
+								  <option value="member3">Sales Team Member 3</option>
+								  <option value="member4">Sales Team Member 4</option>
+								  <option value="member5">Sales Team Member 5</option>
+								  <option value="member6">Sales Team Member 6</option>
+								  <option value="member7">Sales Team Member 7</option>
+								</select>
+              </div>
+              <div class="sub-penel-control">
+              	<div id="toDoTimeDuration">
+                  <select class="SlectBox" placeholder="Ignore">
+                    <option value="ignore">To-dos: Ignore</option>
+                    <option value="today">To-dos: Today</option>
+                    <option value="tomorrow">To-dos: Tomorrow</option>
+                    <option value="week">To-dos: This week</option>
+                    <option value="thismonth">To-dos: This month</option>
+                    <option value="thisquarter">To-dos: This quarter</option>
+                    <option value="no_to-dos">To-dos: No To-dos</option>
+                    <option value="Incomplete">To-dos: Incomplete</option>
+                  </select>
+                </div>
+              </div>  
+              </li>
+              <li><span>Tags</span></li>
+              <li>
+              <div class="sub-penel-control">
+           			<select multiple="multiple" placeholder="Enter tag" onchange="console.log($(this).children(':selected').length)" class="testSelAll2">
+									<option value="tag1">Tag 1</option>
+								  <option value="tag2">Tag 2</option>
+								  <option value="tag3">Tag 3</option>
+								  <option value="tag4">Tag 4</option>
+								  <option value="tag5">Tag 5</option>
+								  <option value="tag6">Tag 6</option>
+								  <option value="tag7">Tag 7</option>
+								</select>
+              </div>
+              </li>
+              <li><br /><button class="btn btn-primary" type="button" style="line-height:25px;border:0px;">&nbsp;<b>APPLY</b>&nbsp;</button>	</li>
+            </ul>
+          </div>
+          </div>
+          <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12">
+                <div id="content-header" class="clearfix">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-5">
+                      	<h1 class="pull-left" id="innerSubOptionBtn" style="line-height:38px;"><a href="javascript:void(0);" id="headmenubtn" onClick="subOptionPenel();"><i class="fa fa-bars"></i></a>&nbsp;&nbsp;</h1>
+                        <div class="pull-left my-all">
+                          <a href="javascript:void(0)" class="active" style="line-height:20px;" onClick="leadpipelineview();" id="leadP">Pipeline</a>
+                          <a href="javascript:void(0)" style="line-height:20px;" onClick="leadlistview();" id="leadL">List</a>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7">
+                        <button class="btn btn-primary pull-right" type="button" style="line-height:25px;border:0px;" onClick="window.location.href='add_leads.html'">ADD LEAD</button>	
+                        <span class="pull-right">&nbsp;</span>
+                        <ul class="nav navbar-nav pull-right">
+						              <li class="dropdown profile-dropdown">
+					                <a href="#" data-toggle="dropdown" class="nopadding">
+					                  <button class="btn btn-primary" type="button" style="line-height:25px;border:0px;">... MORE</button>
+					                </a>
+					                <ul class="dropdown-menu dropdown-menu-left" style="min-width:120px;">
+					                  <li><br /><a href="javascript:void(0);"><i class="fa fa-cog"></i>All Services</a><br /></li>
+					                  <li><a href="javascript:void(0);"><span style="margin-left:-17px;" class="glyphicon glyphicon-export"></span>&nbsp;&nbsp;Export</a><br /></li>
+					                </ul>
+					              </li>
+					            </ul>
+                      </div>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="pipeLine">
+              <div class="col-lg-12">
+              	<div class="row">
+                	<div class="col-lg-12" style="overflow-x:scroll;">
+                	<div style="width:1128px;">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                <div class="lead-stage-title" style="border-bottom:2px solid #99ccff">
+                  <p>Initial Contact</p>
+                  0 leads: $0
+                </div>
+                <div id="list1" class="lists">
+                </div>
+              </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                <div class="lead-stage-title" style="border-bottom:2px solid #ffff99">
+                  <p>Made Proposal</p>
+                  -1 leads: -$100
+                </div>
+                <div id="list2" class="lists">
+                </div>
+              </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                <div class="lead-stage-title" style="border-bottom:2px solid #ffcc66">
+                  <p>Negotiation</p>
+                  3 leads: $300
+                </div>
+                <div id="list3" class="lists">
+                </div>
+              </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 nopadding" style="width:282px;">
+                <div class="lead-stage-title" style="border-bottom:2px solid #ffcccc">
+                  <p>Contract Agreement</p>
+                  0 leads: $0
+                </div>
+                <div id="list4" class="lists">
+                </div>
+              </div>
+                </div>
+                	</div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="leadList">
+              <!-- Contact Table -->
+              <div class="col-lg-12">
+              	<div class="row">
+                	<div class="col-lg-12">
+	                	<div class="main-box clearfix">
+                  
+                  <div class="main-box-body clearfix nopadding">
+                    <div class="table-responsive clearfix">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th class="frist"><div class="checkbox-nice"><input type="checkbox" id="checkbox-1"><label for="checkbox-1"></label></div></th>
+                            <th><a href="#"><span>Lead title</span></a></th>
+                            <th><a href="#" class="desc"><span>Main contact</span></a></th>
+                            <th><a href="#" class="asc"><span>Contacts's company</span></a></th>
+                            <th class="last"><span>Lead status</span></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-2"><label for="checkbox-2"></label></div></td>
+                            <td>lead1</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-warning">Made Proposal</span></td>
+                          </tr>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-3"><label for="checkbox-3"></label></div></td>
+                            <td>lead2</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-success">Completed</span></td>
+                          </tr>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-4"><label for="checkbox-4"></label></div></td>
+                            <td>lead3</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-primary">Pending</span></td>
+                          </tr>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-5"><label for="checkbox-5"></label></div></td>
+                            <td>lead4</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-danger">Cancelled</span></td>
+                          </tr>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-6"><label for="checkbox-6"></label></div></td>
+                            <td>lead5</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-warning">Made Proposal</span></td>
+                          </tr>
+                          <tr>
+                            <td><div class="checkbox-nice"><input type="checkbox" id="checkbox-7"><label for="checkbox-7"></label></div></td>
+                            <td>lead6</td>
+                            <td>contact</td>
+                            <td><a href="#">company name</a></td>
+                            <td><span class="label label-danger">Cancelled</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                	</div>
+                </div>
+              </div>
+              <!-- Contact Table -->  	
+            </div>
+            
+            <!--
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="main-box clearfix">
+                  <header class="main-box-header clearfix">
+                    <h2>Todo</h2>
+                  </header>
+                  
+                  <div class="main-box-body clearfix">
+
+                    <ul class="widget-todo">
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-1" />
+                            <label for="todo-1">
+                              New products introduction <span class="label label-danger">High Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-2" />
+                            <label for="todo-2">
+                              Checking the stock <span class="label label-success">Low Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="actions">
+                          <a href="#" class="table-link">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                          <a href="#" class="table-link danger">
+                            <i class="fa fa-trash-o"></i>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-3" checked="checked" />
+                            <label for="todo-3">
+                              Buying coffee <span class="label label-warning">Medium Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="actions">
+                          <a href="#" class="table-link">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                          <a href="#" class="table-link danger">
+                            <i class="fa fa-trash-o"></i>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-4" />
+                            <label for="todo-4">
+                              New marketing campaign <span class="label label-success">Low Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-5" />
+                            <label for="todo-5">
+                              Calling Mom <span class="label label-warning">Medium Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="actions">
+                          <a href="#" class="table-link badge">
+                            <i class="fa fa-cog"></i>
+                          </a>
+                        </div>
+                      </li>
+                      <li class="clearfix">
+                        <div class="name">
+                          <div class="checkbox-nice">
+                            <input type="checkbox" id="todo-6" />
+                            <label for="todo-6">
+                              Ryan's birthday <span class="label label-danger">High Priority</span>
+                            </label>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                      
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="main-box weather-box">
+                  <header class="main-box-header clearfix">
+                    <h2 class="pull-left">Weather now</h2>
+                  </header>
+                  
+                  <div class="main-box-body clearfix">
+                    <div class="current">
+                      <div class="clearfix center-block" style="width: 220px;">
+                        <canvas class="icon" id="current-weather" width="100" height="100"></canvas>
+                        <div class="temp-wrapper">
+                          <div class="temperature">
+                            -10<span class="sign">°</span>
+                          </div>
+                          <div class="desc">
+                            <i class="fa fa-map-marker"></i> New York
+                          </div>	
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="next">
+                      <ul class="clearfix">
+                        <li>
+                          <div class="day">
+                            MON
+                          </div>
+                          <div class="icon" title="Hot" data-toggle="tooltip">
+                            <i class="wi wi-hot"></i>
+                          </div>
+                          <div class="temperature">
+                            45<span class="sign">°</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="day">
+                            TUE
+                          </div>
+                          <div class="icon" title="Showers" data-toggle="tooltip">
+                            <i class="wi wi-day-showers"></i>
+                          </div>
+                          <div class="temperature">
+                            28<span class="sign">°</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="day">
+                            WED
+                          </div>
+                          <div class="icon" title="Cloudy" data-toggle="tooltip">
+                            <i class="wi wi-cloudy-windy"></i>
+                          </div>
+                          <div class="temperature">
+                            16<span class="sign">°</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="day">
+                            THU
+                          </div>
+                          <div class="icon" title="Thunderstom" data-toggle="tooltip">
+                            <i class="wi wi-thunderstorm"></i>
+                          </div>
+                          <div class="temperature">
+                            18<span class="sign">°</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="day">
+                            FRI
+                          </div>
+                          <div class="icon" title="Lightning" data-toggle="tooltip">
+                            <i class="wi wi-night-alt-lightning"></i>
+                          </div>
+                          <div class="temperature">
+                            22<span class="sign">°</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-8 col-md-12 col-xs-12">
+                <div class="main-box">
+                  <header class="main-box-header clearfix">
+                    <h2 class="pull-left">Visitors location</h2>
+                    
+                    <div class="icon-box pull-right">
+                      <a href="#" class="btn pull-left">
+                        <i class="fa fa-refresh"></i>
+                      </a>
+                      <a href="#" class="btn pull-left">
+                        <i class="fa fa-cog"></i>
+                      </a>
+                    </div>
+                  </header>
+                  
+                  <div class="main-box-body clearfix">
+                    <div class="row">
+                      <div class="col-md-5">
+                        <div class="map-stats">
+                          <div class="table-responsive">
+                            <table class="table table-condensed table-hover">
+                              <thead>
+                                <tr>
+                                  <th><span>Country</span></th>
+                                  <th class="text-center"><span>Last Visit</span></th>
+                                  <th class="text-center"><span>Status</span></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    USA
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status green">
+                                    <i class="fa fa-level-up"></i> 27%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Russia
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status red">
+                                    <i class="fa fa-level-down"></i> 43%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    China
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status green">
+                                    <i class="fa fa-level-up"></i> 18%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    India
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status green">
+                                    <i class="fa fa-level-up"></i> 63%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Australia
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status red">
+                                    <i class="fa fa-level-down"></i> 82%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Canada
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status red">
+                                    <i class="fa fa-level-down"></i> 11%
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    Argentina
+                                  </td>
+                                  <td class="text-center">
+                                    2013/08/08
+                                  </td>
+                                  <td class="text-center status green">
+                                    <i class="fa fa-level-up"></i> 74%
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-7">
+                        <div id="world-map" style="width: 100%; height: 400px"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            -->
+          </div>
+        </div>
+        </div>
+        
+        <footer id="footer-bar" class="row">
+					<p id="footer-copyright" class="col-xs-12">
+						Powered by CRM Theme.
+					</p>
+				</footer>
+                
+			</div>
+		</div>
+    <!-- Document E ting -->
+	</div>
+		
+	<div id="config-tool" class="closed">
+		<a id="config-tool-cog">
+			<i class="fa fa-cog"></i>
+		</a>
+		
+		<div id="config-tool-options">
+    	<div style="display:none;">
+			<h4>Layout Options</h4>
+			<ul>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-header" checked/>
+						<label for="config-fixed-header">
+							Fixed Header
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-sidebar" checked/>
+						<label for="config-fixed-sidebar">
+							Fixed Left Menu
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-fixed-footer" checked/>
+						<label for="config-fixed-footer">
+							Fixed Footer
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-boxed-layout" />
+						<label for="config-boxed-layout">
+							Boxed Layout
+						</label>
+					</div>
+				</li>
+				<li>
+					<div class="checkbox-nice">
+						<input type="checkbox" id="config-rtl-layout" />
+						<label for="config-rtl-layout">
+							Right-to-Left
+						</label>
+					</div>
+				</li>
+			</ul>
+			<br/>
+			<h4>Skin Color</h4>
+      </div>
+			<ul id="skin-colors" class="clearfix">
+				<li>
+					<a class="skin-changer" data-skin="" data-toggle="tooltip" title="Default" style="background-color: #34495e;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-turquoise" data-toggle="tooltip" title="Green Sea" style="background-color: #1abc9c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #2980b9;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;">
+					</a>
+				</li>
+				<li>
+					<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #3498db;">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<!-- global scripts -->
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script src="js/demo-skin-changer.js"></script> <!-- only for demo -->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.nanoscroller.min.js"></script>
+	
+	<script src="js/demo.js"></script> <!-- only for demo -->
+	
+	<!-- this page specific scripts -->
+	<script src="js/moment.min.js"></script>
+	<script src="js/gdp-data.js"></script>
+	<script src="js/flot/jquery.flot.min.js"></script>
+	<script src="js/flot/jquery.flot.resize.min.js"></script>
+	<script src="js/flot/jquery.flot.time.min.js"></script>
+	<script src="js/flot/jquery.flot.threshold.js"></script>
+	<script src="js/flot/jquery.flot.axislabels.js"></script>
+	<script src="js/jquery.sparkline.min.js"></script>
+	
+	<!-- theme scripts -->
+	<script src="js/scripts.js"></script>
+	<script src="js/pace.min.js"></script>
+	
+	<!-- this page specific inline scripts -->
+  <script type="text/javascript">
+		$(document).ready(function () {
+    addElements();
+    $(function () {
+        $("#list1, #list2, #list3, #list4").sortable({
+            connectWith: ".lists",
+            cursor: "move"
+        }).disableSelection();
+    });
+	});
+
+	function addElements() {
+    $("#list1").empty().append(
+        "<div id='item1' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 1</b></a><br /><span class='details-desc'>$100</span></div></div>" +
+        "<div id='item3' class='list1Items'><div class='main-box clearfix'><a href='javascript:void(0);'><b>Lead 2</b></a><br /><span class='details-desc'>$500</span></div></div>");
+		}
+	</script>
+
+  <script type="text/javascript">
+	function popupdiv(event){
+		//alert("function call");
+		if(event.target.id == "back_fader")
+    	{
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("overflow-x","");
+				$("#back_fader").css("overflow-y","");
+				$("#back_fader").css("position","fixed");
+				$("#back_fader").css("right","0px");
+				$("#back_fader").css("top","0px");
+				$("#back_fader").css("z-index","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+   		}
+	};
+	document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    if (evt.keyCode == 27) {
+        //alert("Escape");
+//			$("#popupContent").css("display","");
+//			$("#recentActivitys").css("display","");
+//			$("#recentActivity").css("display","");
+	 			$("#back_fader").css("background-color","");
+				$("#back_fader").css("position","");
+				$("#back_fader").css("left","");
+				$("#back_fader").css("right","");
+				$("#back_fader").css("top","");
+				$("#back_fader").css("bottom","");
+//			$("#popupContent").css("margin","");
+//			$("#popupContent").css("background","");
+//			$("#popupContent").css("position","");
+//			$("#popupContent").css("z-index","");
+//			$("#popupContent").css("box-shadow","");
+//			$("#popupContent").css("top","");
+				$("#innerSubOptionBtn").show();
+				$("#subOptionpenel").hide();
+				$("#back_fader").removeClass("back-fader-style");
+				document.body.style.overflow = 'auto';
+    }
+	};
+	function productdetailspopup(){
+//	$("#recentActivitys").css("display","block");
+//	$("#recentActivity").css("display","block");
+		document.body.style.overflow = 'hidden';
+		$("#back_fader").css("background-color","rgba(0, 0, 0, 0.50)");
+		$("#back_fader").css("position","fixed");
+		$("#back_fader").css("left","0px");
+		$("#back_fader").css("right","0px");
+		$("#back_fader").css("top","0px");
+		$("#back_fader").css("bottom","0px");		
+//	$("#popupContent").css("margin","50px 0px 35px 0px");
+//	$("#popupContent").css("background","#ffffff");
+//	$("#popupContent").css("position","static");
+//	$("#popupContent").css("z-index","10");
+//	$("#popupContent").css("box-shadow","0 3px 8px rgba(34, 25, 25, 0.4)");
+//	$("#popupContent").css("top","110px");
+		$("#content-wrapper").css("padding-left","230px");
+	}
+	</script>
+  <script type="text/javascript">
+		function leadlistview(){
+			$("#pipeLine").hide();
+			$("#leadList").show();
+			$("#leadL").addClass(" active ");
+			$("#leadP").removeClass(" active ");
+		}
+		function leadpipelineview(){
+			$("#pipeLine").show();
+			$("#leadList").hide();
+			$("#leadP").addClass(" active ");
+			$("#leadL").removeClass(" active ");
+		}
+		$("#leadList").hide();
+		function subOptionPenel(){
+			$("#subOptionpenel").toggle();
+			$("#content-wrapper").toggleClass("content-wrapper-noleftpadding");
+			$("#subOptionpenel").toggleClass("suboptionpenelposition");
+			$("#innerSubOptionBtn").toggle();
+			if(window.innerWidth < 1100){
+				$("#back_fader").toggleClass("back-fader-style");
+			}
+		}
+		window.onresize = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+			}
+		}
+		window.onload = function() {
+    	if(window.innerWidth < 1100){
+				$("#subOptionpenel").hide();	
+				$("#content-wrapper").css("padding-left","0px");
+				$("#innerSubOptionBtn").show();
+			}else{
+				$("#subOptionpenel").show();	
+				$("#content-wrapper").css("padding-left","230px");
+				$("#innerSubOptionBtn").hide();
+			}
+		}
+		$("#innerSubOptionBtn").css("display","none");
+	</script>
+</body>
+</html>
