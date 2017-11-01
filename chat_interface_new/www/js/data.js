@@ -3,7 +3,7 @@
 angular.module('mobionicApp.data', [])
 
 // Home Data: Home page configuration
-.factory('Data', function(){
+.factory('Data', function($http){
     var data = {};
     
     data.items = [
@@ -100,7 +100,9 @@ angular.module('mobionicApp.data', [])
 })
 
 // Menu Data: Menu configuration
-.factory('MenuData', function(){
+.factory('MenuData', function ($http,$q) {
+    var deferred = $q.defer();
+    var promise = deferred.promise;
     var data = {};
     
     data.items = [
@@ -137,6 +139,8 @@ angular.module('mobionicApp.data', [])
         }
     ]; 
     
+    
+
     return data;
 })
 
@@ -301,6 +305,56 @@ angular.module('mobionicApp.data', [])
     return service;
 })
 
+
+/*
+
+
+    data.online = function () {
+
+        var dataString = "update=";
+
+            $.ajax({
+                type: "POST",
+                url: "http://forwardingenuity.com/update_book.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                timeout: 7000,
+                beforeSend: function () { $("#insert").val('Connecting...'); },
+                success: function (data) {
+                    if (data == "success") {
+                        //           alert("inserted");
+                        
+                    }
+                    else if (data == "error") {
+
+                    }
+                },
+
+            });
+        // alert("here");
+            deferred.resolve();
+            return promise;
+            
+            //Go to succeeded page
+        
+      
+    };
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Products Data: JSON
 .factory('ProductsData', function($http, $q, $interval, ProductsStorage) {
     
@@ -321,6 +375,9 @@ angular.module('mobionicApp.data', [])
             window.localStorage.setItem('info', JSON.stringify(response.data));
          
         })
+
+        
+
         //alert(window.localStorage.getItem('info'));
         data = JSON.parse(window.localStorage.getItem('info'));
         ProductsStorage.save(data);

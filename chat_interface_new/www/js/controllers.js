@@ -1,8 +1,15 @@
 angular.module('mobionicApp.controllers', [])
 
 // Home Controller
-.controller('HomeCtrl', function($scope, Data) {
-  $scope.items = Data.items;
+.controller('HomeCtrl', function($scope, $http, Data) {
+    
+    $scope.items = Data.items;
+    $http({ method: 'GET', url: 'http://www.forwardingenuity.com/user_online.php' }).then(function (response) {
+
+        return;
+    });
+
+
 })
 
 // News Controller
@@ -693,8 +700,8 @@ angular.module('mobionicApp.controllers', [])
     
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, MenuData, $ionicActionSheet, $ionicPlatform) {
-    
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, MenuData,  $ionicActionSheet, $ionicPlatform) {
+   
   $scope.items = MenuData.items;
     
   // Form data for the login modal
@@ -749,7 +756,7 @@ angular.module('mobionicApp.controllers', [])
         });
 
     };
-
+   
 })
 
 // Feed Plugin Categories Controller
